@@ -817,10 +817,10 @@
     }
 
     @media (max-width: 700px) {
-      .pipeline { flex-direction: column; gap: 0; }
-      .pipeline-step { flex-direction: row; min-width: unset; }
-      .pipeline-node { padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left; }
-      .pipeline-node-icon { margin-bottom: 0; font-size: 1.1rem; }
+      .pipeline { flex-direction: column; gap: 0; overflow-x: unset; padding-bottom: 0; }
+      .pipeline-step { flex-direction: row; min-width: unset; width: 100%; }
+      .pipeline-node { padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left; width: 100%; box-sizing: border-box; }
+      .pipeline-node-icon { margin-bottom: 0; font-size: 1.1rem; flex-shrink: 0; }
       .pipeline-arrow { transform: rotate(90deg); padding: 4px 0; align-self: center; width: 100%; justify-content: center; }
     }
 
