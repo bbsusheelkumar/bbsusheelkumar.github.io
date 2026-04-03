@@ -1501,6 +1501,206 @@
     }
 
     /* ============================================================
+       SECTION: SAMPLE EMAILS
+    ============================================================ */
+    #samples {
+      padding: 96px 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .samples-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    /* Tab switcher */
+    .sample-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .sample-tab {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sample-tab:hover { border-color: var(--border-hover); color: var(--text-secondary); }
+    .sample-tab.active {
+      background: var(--grad);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    /* Email frame */
+    .sample-panel { display: none; }
+    .sample-panel.active { display: block; }
+
+    .email-frame {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #0d1117;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .email-chrome {
+      background: #161b22;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .email-chrome-dots { display: flex; gap: 6px; }
+    .email-chrome-dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .email-chrome-dots span:nth-child(1) { background: #ff5f57; }
+    .email-chrome-dots span:nth-child(2) { background: #febc2e; }
+    .email-chrome-dots span:nth-child(3) { background: #28c840; }
+    .email-subject {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .email-body {
+      padding: 0;
+      max-height: 560px;
+      overflow-y: auto;
+    }
+    .email-body::-webkit-scrollbar { width: 4px; }
+    .email-body::-webkit-scrollbar-track { background: transparent; }
+    .email-body::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.3); border-radius: 2px; }
+
+    /* Email inner sections */
+    .em-header {
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1629 100%);
+      padding: 24px 28px 20px;
+      border-bottom: 2px solid rgba(99,102,241,0.4);
+    }
+    .em-header-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #818cf8;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .em-header-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .em-header-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .em-risk {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+    .em-risk.medium { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+    .em-risk.high   { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
+    .em-risk.low    { background: rgba(52,211,153,0.15);  color: #34d399; border: 1px solid rgba(52,211,153,0.3); }
+
+    .em-section {
+      padding: 18px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .em-section-title {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #818cf8;
+      margin-bottom: 12px;
+    }
+    .em-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+    .em-table th {
+      text-align: left;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 0 8px 8px 0;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .em-table td {
+      padding: 7px 8px 7px 0;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+    }
+    .em-table td.opn { font-family: "SF Mono","Fira Code",Consolas,monospace; color: #a5f3fc; font-size: 0.7rem; }
+    .em-table td.mfr { color: var(--text-muted); font-size: 0.7rem; }
+    .em-table td.neg { color: #f87171; font-weight: 700; }
+    .em-table td.pos { color: #34d399; font-weight: 700; }
+    .em-table td.tag {  }
+    .em-tag {
+      font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 10px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .em-tag.price  { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .em-tag.nrnd   { background: rgba(248,113,113,0.15); color: #f87171; }
+    .em-tag.new    { background: rgba(52,211,153,0.15);  color: #34d399; }
+    .em-tag.lead   { background: rgba(167,139,250,0.15); color: #c4b5fd; }
+
+    .em-ai {
+      background: rgba(99,102,241,0.06);
+      border-left: 3px solid #6366f1;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .em-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
+    }
+    .em-stat-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+    .em-stat-num { font-size: 1.2rem; font-weight: 900; color: #818cf8; letter-spacing: -0.03em; }
+    .em-stat-lbl { font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+    .em-footer-strip {
+      background: linear-gradient(90deg, rgba(99,102,241,0.12), rgba(167,139,250,0.12));
+      padding: 10px 28px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ============================================================
        INTELLIGENCE CADENCE
     ============================================================ */
     #cadence {
@@ -1631,6 +1831,7 @@
     <a href="#features">Features</a>
     <a href="#layers">Intelligence</a>
     <a href="#how">How it works</a>
+    <a href="#samples">Sample Output</a>
     <a href="#cadence">Cadence</a>
     <a href="#access">Get Access</a>
   </nav>
@@ -1682,6 +1883,7 @@
         <a href="#features" class="nav-link">Features</a>
         <a href="#layers"   class="nav-link">Intelligence</a>
         <a href="#how"      class="nav-link">How it works</a>
+        <a href="#samples"  class="nav-link">Sample Output</a>
         <a href="#cadence"  class="nav-link">Cadence</a>
         <a href="#access"   class="nav-link">Get Access</a>
       </div>
@@ -2274,6 +2476,221 @@
   </section>
 
   <!-- ============================================================
+       SAMPLE EMAILS
+  ============================================================ -->
+  <section id="samples">
+    <div class="section-inner">
+
+      <div class="samples-header reveal">
+        <div class="section-label">Sample output</div>
+        <h2 class="section-title">This is what lands in your inbox</h2>
+        <p style="color:var(--text-secondary);font-size:0.95rem;margin-top:12px;">Real format, synthetic data — no company names, no made-up numbers.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="sample-tabs">
+        <button class="sample-tab active" onclick="showSample('daily',this)">Daily Alert</button>
+        <button class="sample-tab" onclick="showSample('weekly',this)">Weekly Digest</button>
+        <button class="sample-tab" onclick="showSample('monthly',this)">Monthly Brief</button>
+      </div>
+
+      <!-- ── DAILY ── -->
+      <div class="sample-panel active" id="sample-daily">
+        <div class="email-frame reveal">
+          <div class="email-chrome">
+            <div class="email-chrome-dots"><span></span><span></span><span></span></div>
+            <div class="email-subject">⚡ 4 Changes · Powertrain Pricing Pressure · ASIL-D Move · Argus Daily — 03 Apr</div>
+          </div>
+          <div class="email-body">
+            <div class="em-header">
+              <div class="em-header-label">Argus · Daily Intelligence Alert</div>
+              <div class="em-header-title">4 changes detected across 3 competitors</div>
+              <div class="em-header-sub">Thursday 03 April · Powertrain · Gateway · Body &amp; Lighting</div>
+              <div class="em-risk medium">Medium Risk</div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Changes Detected</div>
+              <table class="em-table">
+                <thead>
+                  <tr><th>OPN</th><th>Mfr.</th><th>Change</th><th>Detail</th><th>Type</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="opn">PWR-3200AX-Q1</td>
+                    <td class="mfr">Mfr. A</td>
+                    <td class="neg">−11.2%</td>
+                    <td>$6.40 → $5.68</td>
+                    <td class="tag"><span class="em-tag price">Price</span></td>
+                  </tr>
+                  <tr>
+                    <td class="opn">PWR-3200BX-Q1</td>
+                    <td class="mfr">Mfr. A</td>
+                    <td class="neg">−9.8%</td>
+                    <td>$5.10 → $4.60</td>
+                    <td class="tag"><span class="em-tag price">Price</span></td>
+                  </tr>
+                  <tr>
+                    <td class="opn">SAF-7710F-Q1</td>
+                    <td class="mfr">Mfr. B</td>
+                    <td style="color:var(--text-muted)">NRND</td>
+                    <td>Active → NRND</td>
+                    <td class="tag"><span class="em-tag nrnd">Lifecycle</span></td>
+                  </tr>
+                  <tr>
+                    <td class="opn">GWY-4450D-T</td>
+                    <td class="mfr">Mfr. C</td>
+                    <td class="pos">New</td>
+                    <td>ASIL-D · CAN-XL</td>
+                    <td class="tag"><span class="em-tag new">Launch</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">AI Analysis</div>
+              <div class="em-ai">
+                "Two simultaneous price cuts on Mfr. A's Powertrain line — both ASIL-B rated, both targeting the mid-range socket. This is the third reduction in 90 days on this family, consistent with a deliberate repositioning strategy rather than demand softness. Watch for a competitive response in the next 10–14 days. Separately, Mfr. B's NRND move on SAF-7710F opens a migration window — nearest alternatives identified below."
+              </div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Migration Opportunity — SAF-7710F-Q1</div>
+              <table class="em-table">
+                <thead><tr><th>Alternative OPN</th><th>Mfr.</th><th>ASIL</th><th>Price Delta</th></tr></thead>
+                <tbody>
+                  <tr><td class="opn">SAF-7720G-Q1</td><td class="mfr">Mfr. B</td><td>ASIL-D</td><td class="pos">+$0.30</td></tr>
+                  <tr><td class="opn">GWY-4430C-Q1</td><td class="mfr">Mfr. C</td><td>ASIL-D</td><td class="neg">−$0.15</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="em-footer-strip">
+              <span>Argus · Automated Competitive Intelligence</span>
+              <span>4 changes · 3 competitors monitored today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WEEKLY ── -->
+      <div class="sample-panel" id="sample-weekly">
+        <div class="email-frame reveal">
+          <div class="email-chrome">
+            <div class="email-chrome-dots"><span></span><span></span><span></span></div>
+            <div class="email-subject">📊 Weekly Digest — 18 Changes · 2 NRND Moves · Pricing Pattern Emerging · Argus</div>
+          </div>
+          <div class="email-body">
+            <div class="em-header">
+              <div class="em-header-label">Argus · Weekly Intelligence Digest</div>
+              <div class="em-header-title">Week ending 03 April — 18 changes across 6 competitors</div>
+              <div class="em-header-sub">Powertrain · ADAS &amp; Safety · Gateway · Body &amp; Lighting</div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Week in Numbers</div>
+              <div class="em-stat-row">
+                <div class="em-stat-box"><div class="em-stat-num">18</div><div class="em-stat-lbl">Changes</div></div>
+                <div class="em-stat-box"><div class="em-stat-num">2</div><div class="em-stat-lbl">NRND Moves</div></div>
+                <div class="em-stat-box"><div class="em-stat-num">4</div><div class="em-stat-lbl">New OPNs</div></div>
+              </div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Top Story</div>
+              <div class="em-ai">
+                "Mfr. A has now cut Powertrain pricing three times in 90 days across two product families — cumulative reduction of 18–22%. Pattern is consistent with a deliberate socket defence strategy, not demand-side pressure. Historical data shows Mfr. B responded within 12 days on both prior occasions. A response window opens this week."
+              </div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Competitive Gaps Detected</div>
+              <table class="em-table">
+                <thead><tr><th>Segment</th><th>Gap</th><th>Competitors Active</th></tr></thead>
+                <tbody>
+                  <tr><td>ADAS · ASIL-D · &gt;4MB flash</td><td style="color:#f87171">No coverage from Mfr. C</td><td>Mfr. A, Mfr. B</td></tr>
+                  <tr><td>Gateway · CAN-XL + Ethernet</td><td style="color:#fbbf24">1 competitor only</td><td>Mfr. C</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Talent Signal — Hiring Spike</div>
+              <div class="em-ai" style="font-style:normal;">
+                Mfr. B posted 14 new FAE roles in the Powertrain segment this week — 3× their 90-day average. Historically correlates with a design-win ramp 6–9 months ahead.
+              </div>
+            </div>
+
+            <div class="em-footer-strip">
+              <span>Argus · Weekly Digest</span>
+              <span>18 changes · 6 competitors · w/e 03 Apr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MONTHLY ── -->
+      <div class="sample-panel" id="sample-monthly">
+        <div class="email-frame reveal">
+          <div class="email-chrome">
+            <div class="email-chrome-dots"><span></span><span></span><span></span></div>
+            <div class="email-subject">📋 Monthly Strategic Brief — March 2026 · Powertrain Repositioning · ADAS Expansion · Argus</div>
+          </div>
+          <div class="email-body">
+            <div class="em-header">
+              <div class="em-header-label">Argus · Monthly Strategic Brief</div>
+              <div class="em-header-title">March 2026 — Competitive Landscape Summary</div>
+              <div class="em-header-sub">30-day analysis · 6 competitors · 10,000+ part numbers</div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Month in Numbers</div>
+              <div class="em-stat-row">
+                <div class="em-stat-box"><div class="em-stat-num">63</div><div class="em-stat-lbl">Changes</div></div>
+                <div class="em-stat-box"><div class="em-stat-num">7</div><div class="em-stat-lbl">NRND / EOL</div></div>
+                <div class="em-stat-box"><div class="em-stat-num">11</div><div class="em-stat-lbl">New Launches</div></div>
+              </div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Strategic Theme — March</div>
+              <div class="em-ai">
+                "The dominant theme in March was Powertrain repricing — three competitors reduced pricing on ASIL-B/D Powertrain MCUs, collectively covering 34 OPNs. The pattern is consistent with intensifying competition in the mid-range Powertrain socket as second-generation designs approach production ramp. Simultaneously, two competitors launched new ADAS-grade parts with integrated HSM, signalling an expansion of the safety compute segment into higher functional safety levels."
+              </div>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Portfolio Movement by Competitor</div>
+              <table class="em-table">
+                <thead><tr><th>Competitor</th><th>Price Moves</th><th>Launches</th><th>NRND</th><th>Signal</th></tr></thead>
+                <tbody>
+                  <tr><td>Mfr. A</td><td class="neg">−14 OPNs ↓</td><td class="pos">3</td><td>1</td><td>Aggressive repricing</td></tr>
+                  <tr><td>Mfr. B</td><td style="color:var(--text-muted)">Stable</td><td class="pos">5</td><td>2</td><td>ADAS expansion</td></tr>
+                  <tr><td>Mfr. C</td><td class="neg">−6 OPNs ↓</td><td>1</td><td>4</td><td>Portfolio pruning</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="em-section">
+              <div class="em-section-title">Innovation Pipeline</div>
+              <div class="em-ai" style="font-style:normal;">
+                11 patents filed across 3 competitors in March — 6 classified as MCU_INNOVATION, 3 as SAFETY_CERT, 2 as SECURITY. Mfr. B's safety certification filings are 2× the 90-day average, corroborating the ADAS launch trajectory.
+              </div>
+            </div>
+
+            <div class="em-footer-strip">
+              <span>Argus · Monthly Strategic Brief · March 2026</span>
+              <span>Next brief: 01 May 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
        INTELLIGENCE CADENCE
   ============================================================ -->
   <section id="cadence">
@@ -2670,6 +3087,14 @@
         });
       });
     })();
+
+    // ── Sample email tabs ──────────────────────────────────────
+    function showSample(id, btn) {
+      document.querySelectorAll('.sample-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.querySelectorAll('.sample-tab').forEach(function(b){ b.classList.remove('active'); });
+      document.getElementById('sample-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
 
     // ── Footer verb cycling ────────────────────────────────────
     (function () {
