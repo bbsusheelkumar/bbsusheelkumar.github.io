@@ -502,11 +502,18 @@
     .eye-svg-wrap {
       opacity: 0.9;
       max-width: 100%;
+      overflow: hidden;
     }
     .eye-svg-wrap svg {
       max-width: 100%;
       height: auto;
       display: block;
+    }
+
+    @media (max-width: 700px) {
+      .name-grid { grid-template-columns: 1fr; gap: 40px; }
+      .name-visual { order: -1; }
+      .eye-svg-wrap svg { max-width: 220px; margin: 0 auto; }
     }
 
     /* Why Argus main eye animations — ne- prefix, SVG center 110 110 */
