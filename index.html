@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       body { background: #f5f4f0; color: #111; font-family: "Georgia", "Times New Roman", serif; min-height: 100vh; display: flex;
   flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; }
-      .card { max-width: 480px; width: 100%; text-align: center; }
+      .card { max-width: 520px; width: 100%; text-align: center; }
       .dot-wrap { display: flex; justify-content: center; gap: 8px; margin-bottom: 48px; }
       .dot { width: 8px; height: 8px; border-radius: 50%; background: #111; animation: dot-bounce 1.4s ease-in-out infinite; }
       .dot:nth-child(2) { animation-delay: 0.2s; }
@@ -17,27 +17,34 @@
       .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #999; margin-bottom: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .name { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom:
-  24px; font-style: italic; }
-      .divider { width: 40px; height: 1px; background: #ccc; margin: 0 auto 24px; }
-      .message { font-size: 1rem; color: #555; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-  sans-serif; margin-bottom: 40px; }
-      .message em { font-style: normal; color: #111; font-weight: 500; }
-      .link { display: inline-block; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #111;
-  text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; border-bottom: 1px solid #111;
-  padding-bottom: 2px; transition: opacity 0.2s; }
-      .link:hover { opacity: 0.45; }
-      .footnote { margin-top: 64px; font-size: 0.7rem; color: #bbb; letter-spacing: 0.06em; font-family: -apple-system,
+  28px; font-style: italic; }
+      .divider { width: 40px; height: 1px; background: #ccc; margin: 0 auto 32px; }
+      .story { font-size: 1rem; color: #555; line-height: 1.85; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  sans-serif; }
+      .story p { margin-bottom: 16px; }
+      .story p:last-child { margin-bottom: 0; }
+      .story em { font-style: italic; color: #111; }
+      .footnote { margin-top: 56px; font-size: 0.7rem; color: #bbb; letter-spacing: 0.06em; font-family: -apple-system,
   BlinkMacSystemFont, "Segoe UI", sans-serif; }
     </style>
   </head>
   <body>
     <div class="card">
       <div class="dot-wrap"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-      <p class="label">You've arrived somewhere quiet</p>
+      <p class="label">Last seen somewhere between an idea and a coffee</p>
       <h1 class="name">Susheel Kumar B B</h1>
       <div class="divider"></div>
-      <p class="message">isn't on this page.<br>But something he built is <em>watching</em> —<br>one floor up.</p>
-      <a href="/argus/" class="link">See what's watching →</a>
+      <div class="story">
+        <p>stepped out a while ago and hasn't come back yet.</p>
+        <p>Possibly arguing with a whiteboard.<br>
+        Possibly on a long drive with no destination.<br>
+        Possibly staring at the sky, convinced<br>
+        <em>this time</em> the idea is the one.</p>
+        <p>He builds things when nobody's watching,<br>
+        thinks too much when everyone is,<br>
+        and shows up exactly when it matters.</p>
+        <p>He'll be back.<br>He always comes back with something.</p>
+      </div>
       <p class="footnote">bbsusheelkumar.github.io</p>
     </div>
   </body>
