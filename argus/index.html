@@ -1825,9 +1825,9 @@
 
     .cases-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 960px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
       margin: 56px auto 0;
     }
 
@@ -2033,8 +2033,10 @@
 
     .case-sources a:hover { opacity: 1; color: var(--text-secondary); }
 
-    @media (max-width: 720px) {
+    @media (max-width: 900px) {
       .cases-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
       .case-outcome { grid-template-columns: 1fr; }
       .case-numbers { grid-template-columns: repeat(3, 1fr); }
       #cases { padding: 72px 20px; }
@@ -3205,64 +3207,19 @@
         <div class="section-label">Intelligence in practice</div>
         <h2 class="section-title">When the market moved — who saw it first</h2>
         <p style="color:var(--text-secondary);font-size:1rem;margin-top:12px;max-width:620px;margin-left:auto;margin-right:auto;">
-          Four episodes from the automotive semiconductor industry where real-time market intelligence was the difference between a proactive response and an expensive reaction.
+          Three documented episodes from the automotive semiconductor industry where market intelligence — acting on public signals ahead of consensus — determined the outcome.
         </p>
       </div>
 
       <div class="cases-grid">
 
-        <!-- Case 1: Toyota chip shortage resilience -->
+        <!-- Case 1: Infineon AURIX / ISO 26262 timing -->
         <div class="case-card reveal">
-          <div class="case-tag supply">Supply chain</div>
-          <div class="case-context">Automotive OEM · 2020 – 2022</div>
-          <div class="case-title">The chip shortage that wasn't a surprise — for one company</div>
-          <div class="case-hook">
-            Toyota had monitored distributor inventory and lead time signals at component level since the 2011 Tōhoku earthquake. When COVID disrupted semiconductor production in mid-2020, their procurement teams saw the drawdown in distributor channels weeks before competitors noticed — and were already building safety stock.
-          </div>
-          <div class="case-numbers">
-            <div class="case-number">
-              <span class="cn-value">$2.5B</span>
-              <span class="cn-label">Ford EBIT impact from chip shortage, 2021</span>
-            </div>
-            <div class="case-number">
-              <span class="cn-value">+36%</span>
-              <span class="cn-label">Toyota operating profit, same fiscal year</span>
-            </div>
-            <div class="case-number">
-              <span class="cn-value">2–6mo</span>
-              <span class="cn-label">Toyota MCU buffer vs. days for most OEMs</span>
-            </div>
-          </div>
-          <div class="case-signals">
-            <div class="case-signals-label">Public signals that preceded the shortage</div>
-            <ul>
-              <li>Lead times on automotive MCUs extending at distributors from weeks to months (Q3 2020)</li>
-              <li>Week-over-week stock declines visible across Renesas, NXP, and Infineon automotive families</li>
-              <li>Fab utilization reports indicating capacity shift from automotive to consumer devices</li>
-            </ul>
-          </div>
-          <div class="case-outcome">
-            <div class="case-outcome-block">
-              <div class="case-outcome-label win">With intelligence</div>
-              <div class="case-outcome-text">Safety stock built early. Production uninterrupted. Market share gained while competitors idled factories.</div>
-            </div>
-            <div class="case-outcome-block">
-              <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Blind to the drawdown until shelves were empty. 6–8 week plant shutdowns. Customer orders lost.</div>
-            </div>
-          </div>
-          <div class="case-sources">
-            Sources: Ford Motor Q3 2021 Earnings Release (<a href="https://investor.ford.com" target="_blank" rel="noopener">investor.ford.com</a>); Toyota FY2022 Annual Report (<a href="https://global.toyota/en/ir/" target="_blank" rel="noopener">global.toyota/en/ir</a>); KPMG Global Automotive Executive Survey 2021.
-          </div>
-        </div>
-
-        <!-- Case 2: Infineon AURIX / ISO 26262 timing -->
-        <div class="case-card reveal reveal-delay-1">
-          <div class="case-tag timing">First-mover timing</div>
+          <div class="case-tag timing">Regulatory foresight</div>
           <div class="case-context">Automotive safety MCU · 2009 – 2018</div>
           <div class="case-title">Infineon read the regulatory pipeline. The market followed six years later.</div>
           <div class="case-hook">
-            ISO 26262 — the functional safety standard for ASIL-D automotive electronics — had a public review process that ran from 2009 to its 2011 publication. Infineon invested in AURIX during this window and had certified silicon shipping in 2012. By the time OEMs began mandating ASIL-D in RFQs in 2016–2018, Infineon had field-proven silicon and an installed base no competitor could close quickly.
+            ISO 26262 — the functional safety standard mandating ASIL-D for safety-critical automotive electronics — had a public review process running from 2009 to its 2011 publication. Infineon invested in AURIX during this window and had certified silicon shipping in 2012. By the time OEMs began mandating ASIL-D in RFQs, Infineon had field-proven silicon and an installed base no competitor could close quickly.
           </div>
           <div class="case-numbers">
             <div class="case-number">
@@ -3279,10 +3236,10 @@
             </div>
           </div>
           <div class="case-signals">
-            <div class="case-signals-label">Public signals that were visible in advance</div>
+            <div class="case-signals-label">Public signals visible in advance</div>
             <ul>
-              <li>ISO 26262 committee drafts and public review documents available from 2009 (iso.org)</li>
-              <li>Tier-1 suppliers posting functional safety engineer roles rising from 2010 onward</li>
+              <li>ISO 26262 public review documents available from 2009 (iso.org)</li>
+              <li>Tier-1 suppliers posting functional safety engineer roles rising steadily from 2010</li>
               <li>OEM RFQ language beginning to reference ASIL-D requirements from 2013 onward</li>
             </ul>
           </div>
@@ -3297,48 +3254,48 @@
             </div>
           </div>
           <div class="case-sources">
-            Sources: ISO 26262 publication record (<a href="https://www.iso.org/standard/43464.html" target="_blank" rel="noopener">iso.org</a>); Infineon Annual Reports 2012–2018 (<a href="https://www.infineon.com/cms/en/about-infineon/investor/publications/" target="_blank" rel="noopener">infineon.com/ir</a>); SAE International functional safety literature.
+            Sources: ISO 26262 publication record (<a href="https://www.iso.org/standard/43464.html" target="_blank" rel="noopener">iso.org</a>); Infineon Annual Reports 2012–2018 (<a href="https://www.infineon.com/about/investor" target="_blank" rel="noopener">infineon.com/about/investor</a>); SAE International functional safety literature.
           </div>
         </div>
 
-        <!-- Case 3: Renesas Naka factory fire -->
-        <div class="case-card reveal">
+        <!-- Case 2: Renesas Naka fire — MCU supplier perspective -->
+        <div class="case-card reveal reveal-delay-1">
           <div class="case-tag supply">Supply disruption</div>
-          <div class="case-context">Automotive MCU · March 2021</div>
-          <div class="case-title">The Renesas Naka fire: distributor signals before procurement teams noticed</div>
+          <div class="case-context">Automotive MCU · March – June 2021</div>
+          <div class="case-title">The Renesas fire: a 2-month window that competitors with supply intelligence converted into design wins</div>
           <div class="case-hook">
-            On March 19, 2021, a fire at Renesas's Naka fab — responsible for roughly 30% of global automotive MCU output — halted production for approximately two months. Renesas announced the incident publicly within 24 hours. The window wasn't between press coverage and silence — it was between teams monitoring distributor stock daily and teams that checked only when placing orders.
+            When Renesas's Naka fab fire (March 19, 2021) halted ~30% of global automotive MCU output for two months, the supply vacuum was visible in distributor channels within days of the announcement. MCU suppliers monitoring stock and lead time signals across competitor families could identify which Renesas-dependent Tier-1s were at risk — and reach out before Renesas confirmed its recovery timeline.
           </div>
           <div class="case-numbers">
             <div class="case-number">
               <span class="cn-value">~30%</span>
-              <span class="cn-label">share of global automotive MCU output at Naka</span>
+              <span class="cn-label">global automotive MCU capacity at Naka</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">2 months</span>
+              <span class="cn-label">Renesas production downtime</span>
             </div>
             <div class="case-number">
               <span class="cn-value">$210B</span>
               <span class="cn-label">automotive production lost to MCU shortage, 2021</span>
             </div>
-            <div class="case-number">
-              <span class="cn-value">3–10×</span>
-              <span class="cn-label">spot market price increase within two weeks</span>
-            </div>
           </div>
           <div class="case-signals">
-            <div class="case-signals-label">Distributor signals visible within days of the fire</div>
+            <div class="case-signals-label">Signals visible within days of announcement</div>
             <ul>
-              <li>Renesas automotive MCU stock at major distributors declining sharply within days of announcement</li>
-              <li>Lead time quotes for automotive-grade Renesas parts extending from 14 weeks to 52+ weeks</li>
-              <li>Spot market premiums appearing across equivalent NXP and Infineon families as buyers scrambled</li>
+              <li>Renesas automotive MCU stock declining sharply at major distributors within days</li>
+              <li>Lead times extending from 14 to 52+ weeks — signalling extended, not short, outage</li>
+              <li>Tier-1 suppliers disclosing Renesas exposure publicly on earnings calls (Honda, Toyota, others)</li>
             </ul>
           </div>
           <div class="case-outcome">
             <div class="case-outcome-block">
               <div class="case-outcome-label win">With intelligence</div>
-              <div class="case-outcome-text">Stock signal visible within days. Emergency orders placed. Allocation secured before the spot market repriced.</div>
+              <div class="case-outcome-text">Identified Renesas-dependent Tier-1s within days. Initiated qualification conversations for compatible alternatives before competitors did.</div>
             </div>
             <div class="case-outcome-block">
               <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Checked distributor stock only when placing an order. Found nothing available. Paid 3–10× spot market or accepted production delays.</div>
+              <div class="case-outcome-text">Learned about customer exposure from inbound calls weeks later. The qualification window had already been claimed by a faster competitor.</div>
             </div>
           </div>
           <div class="case-sources">
@@ -3346,48 +3303,48 @@
           </div>
         </div>
 
-        <!-- Case 4: AMD vs Intel 10nm -->
-        <div class="case-card reveal reveal-delay-1">
-          <div class="case-tag roadmap">Roadmap intelligence</div>
-          <div class="case-context">Server CPU · 2016 – 2022</div>
-          <div class="case-title">Intel's 10nm delay was visible in public data — years before it was announced</div>
+        <!-- Case 3: Infineon acquires Cypress (2019) — portfolio gap intelligence -->
+        <div class="case-card reveal reveal-delay-2">
+          <div class="case-tag roadmap">Portfolio intelligence</div>
+          <div class="case-context">Automotive MCU · 2017 – 2020</div>
+          <div class="case-title">Infineon saw a portfolio gap in automotive MCU — and closed it with a $9.4B acquisition</div>
           <div class="case-hook">
-            Intel's 10nm manufacturing delay — from first promise (2015) to 10nm server silicon shipping (2021) — was a six-year slip. The signals were present in public data before the delay became industry consensus: patent filing patterns, developer conference hedging, and hiring shifts all pointed the same direction. AMD launched EPYC into the resulting window in 2017 and built a dominant server position before Intel's 10nm platform arrived.
+            By 2018, NXP's S32K family and Renesas's RH850 had strong design-win momentum in automotive body and gateway segments where Infineon's organic portfolio had limited coverage. Cypress's TRAVEO2 automotive MCU family — ARM-based, AEC-Q100 qualified, targeting exactly those segments — was on a documented design-win trajectory. In June 2019, Infineon acquired Cypress for $9.4B, explicitly citing automotive portfolio expansion as a primary rationale.
           </div>
           <div class="case-numbers">
             <div class="case-number">
-              <span class="cn-value">&lt;1%</span>
-              <span class="cn-label">AMD server market share, 2017</span>
+              <span class="cn-value">$9.4B</span>
+              <span class="cn-label">Infineon acquisition price for Cypress, 2019</span>
             </div>
             <div class="case-number">
-              <span class="cn-value">20%+</span>
-              <span class="cn-label">AMD server market share, 2022</span>
+              <span class="cn-value">2020</span>
+              <span class="cn-label">deal closed; TRAVEO2 integrated into Infineon automotive portfolio</span>
             </div>
             <div class="case-number">
-              <span class="cn-value">6 yr</span>
-              <span class="cn-label">Intel 10nm slip (promise 2015 → server silicon 2021)</span>
+              <span class="cn-value">3+</span>
+              <span class="cn-label">automotive MCU families gained (TRAVEO, PSoC, connectivity)</span>
             </div>
           </div>
           <div class="case-signals">
-            <div class="case-signals-label">Public signals that preceded the delay</div>
+            <div class="case-signals-label">Public signals visible before the acquisition</div>
             <ul>
-              <li>Intel 10nm process patent filing rate slowing relative to 14nm cadence (USPTO data, 2015–2016)</li>
-              <li>Intel developer conferences (IDF 2016–2017) hedging on "Cannon Lake" performance and timeline</li>
-              <li>Intel 10nm process engineering job postings declining; 14nm sustaining engineering roles increasing</li>
+              <li>Cypress TRAVEO2 design-win announcements in automotive body/gateway published in Cypress annual reports</li>
+              <li>Cypress automotive application engineer hiring increasing (LinkedIn/job board data, 2017–2018)</li>
+              <li>NXP S32K and Renesas RH850 OPN growth visible in distributor catalogues — segment Infineon lacked coverage in</li>
             </ul>
           </div>
           <div class="case-outcome">
             <div class="case-outcome-block">
               <div class="case-outcome-label win">With intelligence</div>
-              <div class="case-outcome-text">EPYC launched to exploit a specific, predictable gap. Design wins at AWS, Azure, and Google locked in before Intel recovered.</div>
+              <div class="case-outcome-text">Closed the automotive body/gateway portfolio gap before any competitor could acquire TRAVEO2. Became the leading automotive semiconductor supplier by revenue.</div>
             </div>
             <div class="case-outcome-block">
               <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Intel assumed competitive status quo. Lost server leadership built over 20 years — to a competitor half its size — in a single product cycle.</div>
+              <div class="case-outcome-text">The automotive MCU gap persisted. Competing in body/gateway with an organically weaker portfolio while NXP and Renesas consolidated their positions.</div>
             </div>
           </div>
           <div class="case-sources">
-            Sources: AMD Q4 2017 and Q4 2022 Earnings Releases (<a href="https://ir.amd.com" target="_blank" rel="noopener">ir.amd.com</a>); Intel 10nm delay coverage, <a href="https://arstechnica.com" target="_blank" rel="noopener">Ars Technica</a> / <a href="https://spectrum.ieee.org" target="_blank" rel="noopener">IEEE Spectrum</a> 2017–2019; USPTO patent database (<a href="https://patents.google.com" target="_blank" rel="noopener">patents.google.com</a>).
+            Sources: Infineon Technologies press release, 3 June 2019 — "Infineon to acquire Cypress" (<a href="https://www.infineon.com/about/investor" target="_blank" rel="noopener">infineon.com/about/investor</a>); Cypress FY2018 Annual Report; Reuters / Bloomberg acquisition coverage, June 2019.
           </div>
         </div>
 
@@ -3610,12 +3567,12 @@
 
           <div class="faq-item">
             <button class="faq-q" aria-expanded="false">
-              We track 5,000+ OPNs across six competitors. Can Argus handle that scale?
+              We need coverage of 10,000+ OPNs across six competitors. Can Argus handle that scale?
               <span class="faq-chevron" aria-hidden="true"></span>
             </button>
             <div class="faq-a">
               <p>Yes. Argus already monitors the full catalogue across all six vendors — NXP, Infineon, STMicroelectronics, Renesas, Microchip, and Texas Instruments — running daily. The system maintains a rolling pricing and lifecycle history and processes the full vendor portfolio on each run.</p>
-              <p>There is no scale threshold at which you would receive degraded coverage or slower alerts. The system does not allocate compute per subscriber — it watches the entire market once and delivers the relevant signals to each team. Whether you care about 50 OPNs or 5,000, the underlying data collection is the same.</p>
+              <p>There is no scale threshold at which you would receive degraded coverage or slower alerts. The system does not allocate compute per subscriber — it watches the entire market once and delivers the relevant signals to each team. Whether you need coverage of 100 OPNs or the full 10,000+, the underlying data collection is the same.</p>
             </div>
           </div>
 
