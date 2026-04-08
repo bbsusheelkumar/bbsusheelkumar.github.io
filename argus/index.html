@@ -1824,26 +1824,40 @@
     }
 
     .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 20px;
-      max-width: 1100px;
-      margin: 56px auto 0;
+      max-width: 980px;
+      margin: 48px auto 0;
     }
 
     .case-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-card);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 0;
+      overflow: hidden;
       transition: border-color 0.25s, transform 0.25s;
     }
     .case-card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+    }
+
+    .case-card-l {
+      padding: 28px 24px 28px 28px;
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-card-r {
+      padding: 28px 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .case-tag {
@@ -2033,10 +2047,10 @@
 
     .case-sources a:hover { opacity: 1; color: var(--text-secondary); }
 
-    @media (max-width: 900px) {
-      .cases-grid { grid-template-columns: 1fr; }
-    }
     @media (max-width: 720px) {
+      .case-card { grid-template-columns: 1fr; }
+      .case-card-l { border-right: none; border-bottom: 1px solid var(--border-subtle); padding: 24px; }
+      .case-card-r { padding: 24px; }
       .case-outcome { grid-template-columns: 1fr; }
       .case-numbers { grid-template-columns: repeat(3, 1fr); }
       #cases { padding: 72px 20px; }
@@ -3215,106 +3229,148 @@
 
         <!-- Case 1: Infineon AURIX / ISO 26262 timing -->
         <div class="case-card reveal">
-          <div class="case-tag timing">Regulatory foresight</div>
-          <div class="case-context">Automotive safety MCU · 2009 – 2018</div>
-          <div class="case-title">Infineon read the regulatory pipeline. The market followed six years later.</div>
-          <div class="case-hook">ISO 26262's public review process ran from 2009. Infineon shipped AURIX ASIL-D silicon in 2012. By the time OEMs made ASIL-D mandatory in RFQs, the installed base was already insurmountable.</div>
-          <div class="case-numbers">
-            <div class="case-number">
-              <span class="cn-value">2009</span>
-              <span class="cn-label">ISO 26262 public drafts available</span>
+          <div class="case-card-l">
+            <div class="case-tag timing">Regulatory foresight</div>
+            <div class="case-context">Automotive safety MCU · 2009 – 2018</div>
+            <div class="case-title">Infineon read the regulatory pipeline. The market followed six years later.</div>
+            <div class="case-hook">
+              ISO 26262 — the functional safety standard mandating ASIL-D for safety-critical automotive electronics — had a public review process running from 2009 to its 2011 publication. Infineon invested in AURIX during this window and had certified silicon shipping in 2012. By the time OEMs began mandating ASIL-D in RFQs, Infineon had field-proven silicon and an installed base no competitor could close quickly.
             </div>
-            <div class="case-number">
-              <span class="cn-value">2012</span>
-              <span class="cn-label">AURIX TC27x first shipments</span>
-            </div>
-            <div class="case-number">
-              <span class="cn-value">4–6 yr</span>
-              <span class="cn-label">head start over reactive competitors</span>
-            </div>
-          </div>
-          <div class="case-outcome">
-            <div class="case-outcome-block">
-              <div class="case-outcome-label win">Early mover</div>
-              <div class="case-outcome-text">AURIX design wins in first-generation ISO 26262 vehicles. Competitors qualifying silicon into a market already in production ramp.</div>
-            </div>
-            <div class="case-outcome-block">
-              <div class="case-outcome-label loss">Late mover</div>
-              <div class="case-outcome-text">ASIL-D programmes launched 2016–2018. Competed on price in a segment Infineon had already locked with field-proven silicon.</div>
+            <div class="case-numbers" style="margin-top:auto;padding-top:20px;">
+              <div class="case-number">
+                <span class="cn-value">2009</span>
+                <span class="cn-label">ISO 26262 public review drafts available</span>
+              </div>
+              <div class="case-number">
+                <span class="cn-value">2012</span>
+                <span class="cn-label">AURIX TC27x first shipments</span>
+              </div>
+              <div class="case-number">
+                <span class="cn-value">4–6 yr</span>
+                <span class="cn-label">head start over reactive competitors</span>
+              </div>
             </div>
           </div>
-          <div class="case-sources">
-            Sources: ISO 26262 publication record (<a href="https://www.iso.org/standard/43464.html" target="_blank" rel="noopener">iso.org</a>); Infineon Annual Reports (<a href="https://www.infineon.com/about/investor" target="_blank" rel="noopener">infineon.com/about/investor</a>).
+          <div class="case-card-r">
+            <div class="case-signals">
+              <div class="case-signals-label">Public signals visible in advance</div>
+              <ul>
+                <li>ISO 26262 public review documents available from 2009 (iso.org)</li>
+                <li>Tier-1 suppliers posting functional safety engineer roles rising steadily from 2010</li>
+                <li>OEM RFQ language beginning to reference ASIL-D requirements from 2013 onward</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <div class="case-outcome-block">
+                <div class="case-outcome-label win">Early mover</div>
+                <div class="case-outcome-text">Design wins in first-generation ISO 26262 vehicles. Competitors qualifying silicon into a market already in production ramp.</div>
+              </div>
+              <div class="case-outcome-block">
+                <div class="case-outcome-label loss">Late mover</div>
+                <div class="case-outcome-text">ASIL-D programmes launched 2016–2018. Competing on price in a segment Infineon had locked with field-proven silicon.</div>
+              </div>
+            </div>
+            <div class="case-sources">
+              Sources: ISO 26262 record (<a href="https://www.iso.org/standard/43464.html" target="_blank" rel="noopener">iso.org</a>); Infineon Annual Reports (<a href="https://www.infineon.com/about/investor" target="_blank" rel="noopener">infineon.com/about/investor</a>).
+            </div>
           </div>
         </div>
 
         <!-- Case 2: Renesas Naka fire — MCU supplier perspective -->
-        <div class="case-card reveal reveal-delay-1">
-          <div class="case-tag supply">Supply disruption</div>
-          <div class="case-context">Automotive MCU · March – June 2021</div>
-          <div class="case-title">The Renesas Naka fire: 2 months of supply vacuum, visible in distributor data before the market reacted</div>
-          <div class="case-hook">When Renesas's Naka fab fire halted ~30% of global automotive MCU output, distributor stock signals were visible within days. Suppliers monitoring competitor inventory and lead times had a window to identify exposed Tier-1 customers and initiate qualification conversations — before Renesas had confirmed its recovery timeline.</div>
-          <div class="case-numbers">
-            <div class="case-number">
-              <span class="cn-value">~30%</span>
-              <span class="cn-label">global auto MCU capacity taken offline</span>
+        <div class="case-card reveal">
+          <div class="case-card-l">
+            <div class="case-tag supply">Supply disruption</div>
+            <div class="case-context">Automotive MCU · March – June 2021</div>
+            <div class="case-title">The Renesas Naka fire: 2 months of supply vacuum, visible in distributor data before the market reacted</div>
+            <div class="case-hook">
+              When Renesas's Naka fab fire (March 19, 2021) halted ~30% of global automotive MCU output for two months, the supply vacuum was visible in distributor channels within days of the announcement. MCU suppliers monitoring competitor stock and lead time signals could identify which Tier-1s were at risk — and reach out before Renesas confirmed its recovery timeline.
             </div>
-            <div class="case-number">
-              <span class="cn-value">2 months</span>
-              <span class="cn-label">Renesas Naka production downtime</span>
-            </div>
-            <div class="case-number">
-              <span class="cn-value">$210B</span>
-              <span class="cn-label">automotive production lost, 2021 (AlixPartners)</span>
-            </div>
-          </div>
-          <div class="case-outcome">
-            <div class="case-outcome-block">
-              <div class="case-outcome-label win">With supply intelligence</div>
-              <div class="case-outcome-text">Identified Tier-1 exposure within days via distributor signals. Qualification conversations started before the market reacted.</div>
-            </div>
-            <div class="case-outcome-block">
-              <div class="case-outcome-label loss">Without supply intelligence</div>
-              <div class="case-outcome-text">Customer exposure learned from inbound calls weeks later. The qualification window had already closed.</div>
+            <div class="case-numbers" style="margin-top:auto;padding-top:20px;">
+              <div class="case-number">
+                <span class="cn-value">~30%</span>
+                <span class="cn-label">global auto MCU capacity at Naka</span>
+              </div>
+              <div class="case-number">
+                <span class="cn-value">2 months</span>
+                <span class="cn-label">Renesas production downtime</span>
+              </div>
+              <div class="case-number">
+                <span class="cn-value">$210B</span>
+                <span class="cn-label">automotive production lost, 2021 (AlixPartners)</span>
+              </div>
             </div>
           </div>
-          <div class="case-sources">
-            Sources: Renesas press release, 19 March 2021 (<a href="https://www.renesas.com/us/en/about/press-room" target="_blank" rel="noopener">renesas.com/press-room</a>); AlixPartners disruption report, 2021 (<a href="https://www.alixpartners.com" target="_blank" rel="noopener">alixpartners.com</a>).
+          <div class="case-card-r">
+            <div class="case-signals">
+              <div class="case-signals-label">Distributor signals visible within days</div>
+              <ul>
+                <li>Renesas automotive MCU stock declining sharply at major distributors within days of announcement</li>
+                <li>Lead time quotes extending from ~14 weeks to 52+ weeks — signalling extended, not short, outage</li>
+                <li>Automotive OEMs publicly disclosing Renesas supply exposure in earnings calls</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <div class="case-outcome-block">
+                <div class="case-outcome-label win">With supply intelligence</div>
+                <div class="case-outcome-text">Identified exposed Tier-1s within days. Qualification conversations started before the market reacted.</div>
+              </div>
+              <div class="case-outcome-block">
+                <div class="case-outcome-label loss">Without supply intelligence</div>
+                <div class="case-outcome-text">Learned of exposure from inbound calls weeks later. The qualification window had already closed.</div>
+              </div>
+            </div>
+            <div class="case-sources">
+              Sources: Renesas press release, 19 March 2021 (<a href="https://www.renesas.com/us/en/about/press-room" target="_blank" rel="noopener">renesas.com/press-room</a>); AlixPartners disruption report, 2021 (<a href="https://www.alixpartners.com" target="_blank" rel="noopener">alixpartners.com</a>).
+            </div>
           </div>
         </div>
 
         <!-- Case 3: STM automotive electrification bet -->
-        <div class="case-card reveal reveal-delay-2">
-          <div class="case-tag roadmap">Market timing</div>
-          <div class="case-context">Automotive semiconductor · 2017 – 2022</div>
-          <div class="case-title">STMicroelectronics read the EV wave early — automotive became its largest revenue segment</div>
-          <div class="case-hook">The signals driving automotive electrification were visible in public data years before consensus forecasts reflected them: China's NEV mandate (2017), Tesla's Model 3 ramp (2018), and major OEM platform commitments. ST invested ahead of the curve — and automotive net revenues roughly doubled by 2022.</div>
-          <div class="case-numbers">
-            <div class="case-number">
-              <span class="cn-value">2017</span>
-              <span class="cn-label">China NEV mandate — first mandatory EV adoption signal</span>
+        <div class="case-card reveal">
+          <div class="case-card-l">
+            <div class="case-tag roadmap">Market timing</div>
+            <div class="case-context">Automotive semiconductor · 2017 – 2022</div>
+            <div class="case-title">STMicroelectronics read the EV wave early — automotive became its largest revenue segment</div>
+            <div class="case-hook">
+              The signals driving automotive electrification were visible in public data years before consensus forecasts reflected them: government EV mandates, OEM platform commitments, and Tesla's production ramp all pointed to the same structural shift. ST invested ahead of the curve — and automotive net revenues roughly doubled between 2019 and 2022.
             </div>
-            <div class="case-number">
-              <span class="cn-value">2018</span>
-              <span class="cn-label">VW MEB platform announced — 70+ EV models committed</span>
-            </div>
-            <div class="case-number">
-              <span class="cn-value">~2×</span>
-              <span class="cn-label">ST automotive net revenues, 2019 vs 2022</span>
-            </div>
-          </div>
-          <div class="case-outcome">
-            <div class="case-outcome-block">
-              <div class="case-outcome-label win">Early mover</div>
-              <div class="case-outcome-text">Automotive investments timed to the demand inflection. Became one of the top automotive semiconductor suppliers by revenue.</div>
-            </div>
-            <div class="case-outcome-block">
-              <div class="case-outcome-label loss">Late mover</div>
-              <div class="case-outcome-text">Qualification cycles, toolchain investment, and capacity commitments require 2–3 years of lead time. Entering at peak demand means entering at peak cost.</div>
+            <div class="case-numbers" style="margin-top:auto;padding-top:20px;">
+              <div class="case-number">
+                <span class="cn-value">2017</span>
+                <span class="cn-label">China NEV mandate — first mandatory EV signal</span>
+              </div>
+              <div class="case-number">
+                <span class="cn-value">2018</span>
+                <span class="cn-label">VW MEB — 70+ EV models committed</span>
+              </div>
+              <div class="case-number">
+                <span class="cn-value">~2×</span>
+                <span class="cn-label">ST automotive net revenues, 2019 vs 2022</span>
+              </div>
             </div>
           </div>
-          <div class="case-sources">
-            Sources: STMicroelectronics Annual Reports 2019–2022 (<a href="https://investors.st.com" target="_blank" rel="noopener">investors.st.com</a>); China MIIT NEV policy (2017); VW MEB platform announcement, 2018.
+          <div class="case-card-r">
+            <div class="case-signals">
+              <div class="case-signals-label">Public signals visible 3–5 years ahead of peak demand</div>
+              <ul>
+                <li>China NEV mandate (2017): automakers required to earn EV credits — mandatory volume inflection</li>
+                <li>Tesla Model 3 production ramp (2018): first proof of consumer EV demand at scale</li>
+                <li>VW MEB (2018), GM Ultium (2020): major OEM EV platforms committed in public filings</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <div class="case-outcome-block">
+                <div class="case-outcome-label win">Early mover</div>
+                <div class="case-outcome-text">Automotive investments timed ahead of the demand curve. Became one of the top automotive semiconductor suppliers by revenue.</div>
+              </div>
+              <div class="case-outcome-block">
+                <div class="case-outcome-label loss">Late mover</div>
+                <div class="case-outcome-text">Qualification, toolchain, and capacity investments require 2–3 years. Entering at peak demand means entering at peak cost — with the best sockets already taken.</div>
+              </div>
+            </div>
+            <div class="case-sources">
+              Sources: STMicroelectronics Annual Reports 2019–2022 (<a href="https://investors.st.com" target="_blank" rel="noopener">investors.st.com</a>); China MIIT NEV mandate (2017); VW MEB announcement, 2018.
+            </div>
           </div>
         </div>
 
