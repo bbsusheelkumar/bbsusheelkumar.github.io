@@ -3034,17 +3034,16 @@
         </div>
 
         <!-- ── CATEGORY: BUILD VS BUY ──────────────────────────────── -->
-        <div class="faq-category reveal">Build vs. buy</div>
+        <div class="faq-category reveal">Why Argus vs. alternatives</div>
 
         <div class="faq-item reveal">
           <button class="faq-q" aria-expanded="false">
-            Why not build this ourselves? We have data engineers and an AI team.
+            Could we replicate this ourselves? We have data engineers and an AI team.
             <span class="faq-chevron" aria-hidden="true"></span>
           </button>
           <div class="faq-a">
-            <p>The engineering surface area is larger than it appears. A production-grade CI system for automotive MCUs requires: distributor API integrations (DigiKey and Mouser have authentication, rate limits, and schema changes); vendor website scrapers that survive Cloudflare, Akamai, and bot-detection layers updated monthly; patent source integrations across USPTO ODP, EPO OPS, SerpAPI, and Lens.org; SEC EDGAR parsing; job board scrapers; forum scrapers for six different platforms; an AI classification pipeline with cost management and model fallback; a diff engine that reliably detects changes without false positives on distributor stock fluctuations; and a delivery layer (email, Slack, REST API) with role-based routing.</p>
-            <p>Build time for a team that has not done this before: 6–12 months to a usable MVP, 12–18 months to production-grade with the failure modes handled. Ongoing maintenance is 0.5–1 FTE due to vendor website changes, distributor API updates, and AI model lifecycle management.</p>
-            <p>The question is not whether you <em>can</em> build it — you can. The question is whether a semiconductor vendor's engineering headcount is best deployed on CI tooling or on the products that generate the revenue the CI system is trying to protect. The answer is almost always the latter.</p>
+            <p>You could — and you would arrive at something approximating what Argus already does, after significant investment. A production-grade CI system for automotive MCUs requires: distributor API integrations (DigiKey and Mouser have rate limits, schema changes, and authentication requirements maintained by their teams); vendor website scrapers that survive Cloudflare, Akamai, and bot-detection layers refreshed monthly; patent integrations across USPTO ODP, EPO OPS, SerpAPI, and Lens.org; SEC EDGAR parsing; job board scrapers; forum scrapers across six different platforms; an AI classification pipeline with cost management and multi-model fallback; a diff engine calibrated to distinguish genuine pricing moves from distributor stock fluctuations; and a role-filtered delivery layer. Ongoing maintenance alone runs 0.5–1 FTE.</p>
+            <p>We have already built, debugged, and hardened that system. It runs every day. What we offer is not a setup engagement — it is access to intelligence that is already being produced. The question for your team is not whether the capability is buildable, but whether your engineering and product headcount is better spent on the MCUs that generate the revenue, or on the tooling that monitors the market for it.</p>
           </div>
         </div>
 
@@ -3055,7 +3054,7 @@
           </button>
           <div class="faq-a">
             <p>A CI analyst produces strategic depth but cannot produce daily operational coverage across 8,000+ OPNs — no human can. Market research firms (IHS Markit, Yole, Gartner) produce excellent annual reports but are structurally lagged by 6–12 months and priced at $50–200K per engagement for custom work, with no real-time alerting.</p>
-            <p>Argus is not a substitute for strategic analysis; it is the data layer underneath it. The Monday digest gives your CI analyst or product strategist a fact base assembled from the past seven days of market movement — so their time is spent on interpretation and decision-making, not data gathering. The combination of Argus + one senior analyst outperforms a three-person CI team working from quarterly reports.</p>
+            <p>Argus is not a substitute for strategic analysis — it is the live data layer underneath it. Because we are already watching the market continuously, your Monday briefing contains what changed in the past seven days, not what someone last researched six months ago. Your CI analyst or product strategist receives a fact base, not a research project — so their time goes to interpretation and decision-making rather than data gathering. The combination of Argus + one senior analyst outperforms a three-person CI team working from quarterly reports.</p>
           </div>
         </div>
 
@@ -3113,8 +3112,8 @@
             <span class="faq-chevron" aria-hidden="true"></span>
           </button>
           <div class="faq-a">
-            <p>Argus retains only the market data it collects — competitor OPN records, pricing history, lifecycle events, patent signals, and the AI-generated analysis derived from those inputs. It has no visibility into your internal systems, pricing models, customer lists, roadmap documents, or strategic decisions.</p>
-            <p>When deployed in your environment (self-hosted via GitHub Actions), the database, outputs, and AI call logs reside entirely within your infrastructure. No market observations, alert content, or usage patterns are transmitted to a third-party analytics layer. The only external calls are to the data sources themselves (DigiKey, Mouser, USPTO, etc.) and to the AI provider APIs (Anthropic, OpenAI, or your preferred model) — both of which are industry-standard integrations your IT and legal teams will recognise.</p>
+            <p>Argus retains only the market data it collects — competitor OPN records, pricing history, lifecycle events, patent signals, and the AI-generated analysis derived from those inputs. It has no visibility into your internal systems, pricing models, customer lists, roadmap documents, or strategic decisions. We do not ask for them and do not need them — the intelligence we produce is derived entirely from public market sources.</p>
+            <p>The alerts and briefs delivered to your team are private to your subscription. We do not share subscriber identity, alert configurations, or the conclusions you draw from our intelligence with any third party, including other subscribers. What you do with the intelligence — the pricing decisions, the sales plays, the roadmap calls — happens entirely within your organisation and is invisible to us.</p>
           </div>
         </div>
 
@@ -3138,8 +3137,8 @@
             <span class="faq-chevron" aria-hidden="true"></span>
           </button>
           <div class="faq-a">
-            <p>Yes. The system is architected around async parallel processing and a local cache layer that decouples data collection from analysis. Each vendor's catalog is fetched independently; the diff engine processes 50,000+ OPN comparisons in under 30 seconds on standard hardware. The SQLite database handles 10,000+ OPN snapshots per day with sub-second query performance on all reporting paths.</p>
-            <p>Scale constraints are distributor API rate limits (DigiKey and Mouser cap requests per minute), not compute. The enrichment layer handles this with a rotating 15-day schedule — every OPN is refreshed within a two-week window, with high-velocity or recently-changed OPNs prioritised on-demand. At 5,000 OPNs across six vendors, this results in roughly 330 distributor API calls per day, well within standard tier limits.</p>
+            <p>Yes. Argus already monitors the full catalog across all six vendors — NXP, Infineon, STMicroelectronics, Renesas, Microchip, and Texas Instruments — running daily at scale. The pipeline processes 50,000+ OPN comparisons per run, maintains a rolling 90-day pricing and lifecycle history, and enriches distributor data on a rotating 15-day schedule that prioritises recently-changed OPNs.</p>
+            <p>There is no scale threshold at which you would receive degraded coverage or slower alerts. The system does not allocate compute per subscriber — it watches the entire market once and delivers the relevant signals to each team. Whether you care about 50 OPNs or 5,000, the underlying data collection is the same.</p>
           </div>
         </div>
 
@@ -3156,12 +3155,12 @@
 
         <div class="faq-item reveal">
           <button class="faq-q" aria-expanded="false">
-            What is the realistic time-to-value after deployment?
+            How quickly do we start receiving intelligence after subscribing?
             <span class="faq-chevron" aria-hidden="true"></span>
           </button>
           <div class="faq-a">
-            <p>Day 1: the first pipeline run populates the database with current snapshots across all six vendors. Day 2: the first diff run identifies any changes that occurred since the initial snapshot — in practice, 5–15 pricing or lifecycle events on an average day. Week 1: the first Monday digest delivers the weekly strategic synthesis. Week 3–4: enough history has accumulated to begin velocity and trend analysis (repricing cadence, stock trend alerts, design-win velocity signals).</p>
-            <p>The system is designed to be useful from the first alert and to become progressively more valuable as the historical database deepens. The 90-day window for patent and pricing velocity analysis reaches full fidelity after three months of operation. Based on typical deployments, teams report actionable intelligence — a pricing decision supported by live data, a sales CTA triggered by a competitor NRND — within the first two weeks.</p>
+            <p>Immediately. There is no setup period, no integration project, and no data population phase — the system is already running and has been watching the market continuously. When your subscription is activated, you receive access to the live alert feed and the accumulated historical database from day one. Your first daily brief arrives the following morning; your first Monday strategic digest arrives on the next Monday.</p>
+            <p>The intelligence is immediately actionable. Pricing velocity analysis (how many times has this OPN moved in 90 days?) is available from the first alert because the history already exists. Design-win momentum signals, patent filing trends, and developer community friction scores reflect months of continuous monitoring — not a baseline being built from scratch. Subscribers typically identify their first actionable signal — a competitor NRND to convert, a price move to respond to, or a white-space opportunity to pursue — within the first week.</p>
           </div>
         </div>
 
