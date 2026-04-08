@@ -1934,9 +1934,109 @@
       line-height: 1.6;
     }
 
+    .case-hook {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .case-numbers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 12px 10px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .case-number {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 3px;
+      padding: 4px 2px;
+    }
+
+    .cn-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--accent-1);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .cn-label {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .case-signals {
+      margin-bottom: 10px;
+    }
+
+    .case-signals-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+
+    .case-signals ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .case-signals li {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .case-signals li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent-1);
+      font-size: 0.75rem;
+      top: 1px;
+    }
+
+    .case-sources {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      opacity: 0.75;
+    }
+
+    .case-sources a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .case-sources a:hover { opacity: 1; color: var(--text-secondary); }
+
     @media (max-width: 720px) {
       .cases-grid { grid-template-columns: 1fr; }
       .case-outcome { grid-template-columns: 1fr; }
+      .case-numbers { grid-template-columns: repeat(3, 1fr); }
       #cases { padding: 72px 20px; }
     }
 
@@ -1954,10 +2054,35 @@
       margin-top: 10px;
     }
 
+    .faq-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 28px 0 0;
+    }
+    .faq-tab {
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      font-family: inherit;
+    }
+    .faq-tab:hover { border-color: var(--border-hover); color: var(--text-primary); }
+    .faq-tab.faq-tab-active { background: var(--accent-1); border-color: var(--accent-1); color: #fff; }
+
     .faq-list {
       max-width: 820px;
-      margin: 56px auto 0;
+      margin: 32px auto 0;
     }
+
+    .faq-group { display: none; }
+    .faq-group.faq-group-active { display: block; }
 
     .faq-category {
       font-size: 0.7rem;
@@ -1965,11 +2090,10 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent-3);
-      margin: 48px 0 16px;
+      margin: 0 0 16px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border-subtle);
     }
-    .faq-category:first-child { margin-top: 0; }
 
     .faq-item {
       border-bottom: 1px solid var(--border-subtle);
@@ -3087,15 +3211,36 @@
 
       <div class="cases-grid">
 
-        <!-- Case 1: Toyota chip shortage -->
+        <!-- Case 1: Toyota chip shortage resilience -->
         <div class="case-card reveal">
           <div class="case-tag supply">Supply chain</div>
-          <div class="case-context">Automotive MCU · 2020 – 2022</div>
+          <div class="case-context">Automotive OEM · 2020 – 2022</div>
           <div class="case-title">The chip shortage that wasn't a surprise — for one company</div>
-          <div class="case-body">
-            When COVID-19 disrupted semiconductor supply in 2020, virtually every automaker was caught flat-footed. Ford and GM shut assembly lines for weeks, collectively losing over $10B in revenue in 2021 alone. Toyota did not. Toyota had operated a supply chain monitoring discipline since the 2011 Tōhoku earthquake — tracking distributor inventory levels and lead time signals across every critical component tier. When MCU stock began declining in distributor channels in mid-2020, their procurement teams were already building safety stock. They had 2–6 months of buffer before competitors had days.
+          <div class="case-hook">
+            Toyota had monitored distributor inventory and lead time signals at component level since the 2011 Tōhoku earthquake. When COVID disrupted semiconductor production in mid-2020, their procurement teams saw the drawdown in distributor channels weeks before competitors noticed — and were already building safety stock.
           </div>
-          <div class="case-stat">"Ford lost an estimated $2.5B in 2021 EBIT to the chip shortage. Toyota's operating profit rose 36% the same year." — multiple analyst reports, 2021.</div>
+          <div class="case-numbers">
+            <div class="case-number">
+              <span class="cn-value">$2.5B</span>
+              <span class="cn-label">Ford EBIT impact from chip shortage, 2021</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">+36%</span>
+              <span class="cn-label">Toyota operating profit, same fiscal year</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">2–6mo</span>
+              <span class="cn-label">Toyota MCU buffer vs. days for most OEMs</span>
+            </div>
+          </div>
+          <div class="case-signals">
+            <div class="case-signals-label">Public signals that preceded the shortage</div>
+            <ul>
+              <li>Lead times on automotive MCUs extending at distributors from weeks to months (Q3 2020)</li>
+              <li>Week-over-week stock declines visible across Renesas, NXP, and Infineon automotive families</li>
+              <li>Fab utilization reports indicating capacity shift from automotive to consumer devices</li>
+            </ul>
+          </div>
           <div class="case-outcome">
             <div class="case-outcome-block">
               <div class="case-outcome-label win">With intelligence</div>
@@ -3103,20 +3248,44 @@
             </div>
             <div class="case-outcome-block">
               <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Blind to the drawdown until shelves were empty. 6–8 week plant shutdowns. Customer orders lost to competitors with supply.</div>
+              <div class="case-outcome-text">Blind to the drawdown until shelves were empty. 6–8 week plant shutdowns. Customer orders lost.</div>
             </div>
+          </div>
+          <div class="case-sources">
+            Sources: Ford Motor Q3 2021 Earnings Release (<a href="https://investor.ford.com" target="_blank" rel="noopener">investor.ford.com</a>); Toyota FY2022 Annual Report (<a href="https://global.toyota/en/ir/" target="_blank" rel="noopener">global.toyota/en/ir</a>); KPMG Global Automotive Executive Survey 2021.
           </div>
         </div>
 
-        <!-- Case 2: Infineon AURIX timing -->
+        <!-- Case 2: Infineon AURIX / ISO 26262 timing -->
         <div class="case-card reveal reveal-delay-1">
           <div class="case-tag timing">First-mover timing</div>
-          <div class="case-context">Automotive safety MCU · 2012 – 2018</div>
+          <div class="case-context">Automotive safety MCU · 2009 – 2018</div>
           <div class="case-title">Infineon read the regulatory pipeline. The market followed six years later.</div>
-          <div class="case-body">
-            ISO 26262 — the functional safety standard mandating ASIL-D certification for safety-critical automotive electronics — was published in 2011. Infineon tracked the standards committee output, OEM RFQ language changes, and Tier-1 supplier job postings for functional safety engineers years before the standard became commercially mandatory. While competitors continued shipping general-purpose automotive MCUs, Infineon invested in AURIX — a dedicated ASIL-D architecture — and had certified silicon shipping by 2012. By the time automotive OEMs began specifying ASIL-D as a baseline requirement in 2016–2018, Infineon had two generations of field-proven silicon and the dominant position in powertrain and chassis safety. Competitors spent the next four years playing catch-up on a platform they could have started in 2012.
+          <div class="case-hook">
+            ISO 26262 — the functional safety standard for ASIL-D automotive electronics — had a public review process that ran from 2009 to its 2011 publication. Infineon invested in AURIX during this window and had certified silicon shipping in 2012. By the time OEMs began mandating ASIL-D in RFQs in 2016–2018, Infineon had field-proven silicon and an installed base no competitor could close quickly.
           </div>
-          <div class="case-stat">AURIX reached an estimated 60%+ share in ASIL-D automotive MCU applications by 2020 — a position built on a 4-year head start, not superior technology alone.</div>
+          <div class="case-numbers">
+            <div class="case-number">
+              <span class="cn-value">2009</span>
+              <span class="cn-label">ISO 26262 public review drafts available</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">2012</span>
+              <span class="cn-label">AURIX TC27x first shipments</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">4–6 yr</span>
+              <span class="cn-label">head start over reactive competitors</span>
+            </div>
+          </div>
+          <div class="case-signals">
+            <div class="case-signals-label">Public signals that were visible in advance</div>
+            <ul>
+              <li>ISO 26262 committee drafts and public review documents available from 2009 (iso.org)</li>
+              <li>Tier-1 suppliers posting functional safety engineer roles rising from 2010 onward</li>
+              <li>OEM RFQ language beginning to reference ASIL-D requirements from 2013 onward</li>
+            </ul>
+          </div>
           <div class="case-outcome">
             <div class="case-outcome-block">
               <div class="case-outcome-label win">With intelligence</div>
@@ -3124,50 +3293,101 @@
             </div>
             <div class="case-outcome-block">
               <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Reactive safety MCU programs launched 2016–2018. Missed the early adopter design-win cycle. Competing on price in a market Infineon already owned.</div>
+              <div class="case-outcome-text">Reactive ASIL-D programs launched 2016–2018. Missed early-adopter design-win cycle. Competing in a market Infineon already owned.</div>
             </div>
+          </div>
+          <div class="case-sources">
+            Sources: ISO 26262 publication record (<a href="https://www.iso.org/standard/43464.html" target="_blank" rel="noopener">iso.org</a>); Infineon Annual Reports 2012–2018 (<a href="https://www.infineon.com/cms/en/about-infineon/investor/publications/" target="_blank" rel="noopener">infineon.com/ir</a>); SAE International functional safety literature.
           </div>
         </div>
 
-        <!-- Case 3: Renesas factory fire -->
+        <!-- Case 3: Renesas Naka factory fire -->
         <div class="case-card reveal">
           <div class="case-tag supply">Supply disruption</div>
           <div class="case-context">Automotive MCU · March 2021</div>
-          <div class="case-title">The Renesas fire: a 48-hour window that separated winners from waiters</div>
-          <div class="case-body">
-            On March 19, 2021, a fire at Renesas's Naka fab — responsible for roughly 30% of global automotive MCU output — shut production for over a month. The formal Renesas press release came five days after the incident. But automotive MCU stock on DigiKey and Mouser began its drawdown within 48 hours of the fire, as distributors' automated procurement systems triggered. Procurement teams monitoring distributor stock daily had a 5-day head start on anyone waiting for press coverage. Those who acted in the 48-hour window placed emergency orders and locked allocation. Those who waited for the press release found nothing available at any price.
+          <div class="case-title">The Renesas Naka fire: distributor signals before procurement teams noticed</div>
+          <div class="case-hook">
+            On March 19, 2021, a fire at Renesas's Naka fab — responsible for roughly 30% of global automotive MCU output — halted production for approximately two months. Renesas announced the incident publicly within 24 hours. The window wasn't between press coverage and silence — it was between teams monitoring distributor stock daily and teams that checked only when placing orders.
           </div>
-          <div class="case-stat">The Naka fire contributed to a global automotive MCU shortage that cost the automotive industry an estimated $210B in lost vehicle production in 2021 (AlixPartners estimate).</div>
+          <div class="case-numbers">
+            <div class="case-number">
+              <span class="cn-value">~30%</span>
+              <span class="cn-label">share of global automotive MCU output at Naka</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">$210B</span>
+              <span class="cn-label">automotive production lost to MCU shortage, 2021</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">3–10×</span>
+              <span class="cn-label">spot market price increase within two weeks</span>
+            </div>
+          </div>
+          <div class="case-signals">
+            <div class="case-signals-label">Distributor signals visible within days of the fire</div>
+            <ul>
+              <li>Renesas automotive MCU stock at major distributors declining sharply within days of announcement</li>
+              <li>Lead time quotes for automotive-grade Renesas parts extending from 14 weeks to 52+ weeks</li>
+              <li>Spot market premiums appearing across equivalent NXP and Infineon families as buyers scrambled</li>
+            </ul>
+          </div>
           <div class="case-outcome">
             <div class="case-outcome-block">
               <div class="case-outcome-label win">With intelligence</div>
-              <div class="case-outcome-text">Stock signal visible within 48 hours. Emergency orders placed. Allocation secured before public announcement.</div>
+              <div class="case-outcome-text">Stock signal visible within days. Emergency orders placed. Allocation secured before the spot market repriced.</div>
             </div>
             <div class="case-outcome-block">
               <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Learned from the press release 5 days later. Open market spot prices for equivalent parts rose 3–10× within two weeks.</div>
+              <div class="case-outcome-text">Checked distributor stock only when placing an order. Found nothing available. Paid 3–10× spot market or accepted production delays.</div>
             </div>
+          </div>
+          <div class="case-sources">
+            Sources: Renesas Electronics press release, 19 March 2021 (<a href="https://www.renesas.com/us/en/about/press-room" target="_blank" rel="noopener">renesas.com/press-room</a>); AlixPartners "How Automakers Can Thrive in the Era of Disruption," 2021 (<a href="https://www.alixpartners.com" target="_blank" rel="noopener">alixpartners.com</a>).
           </div>
         </div>
 
-        <!-- Case 4: AMD vs Intel server -->
+        <!-- Case 4: AMD vs Intel 10nm -->
         <div class="case-card reveal reveal-delay-1">
           <div class="case-tag roadmap">Roadmap intelligence</div>
-          <div class="case-context">Server CPU · 2017 – 2022</div>
-          <div class="case-title">AMD read Intel's roadmap slip in public data — two years before the market did</div>
-          <div class="case-body">
-            By 2016, public signals of Intel's 10nm process delay were visible to anyone watching systematically: patent filings in 10nm process innovations slowed markedly, job postings for 10nm process engineers dropped, and Intel's own developer conference presentations began hedging on "Cannon Lake" timelines. AMD's product and competitive teams — tracking these signals — had high confidence by 2017 that Intel's next-generation server platform would slip significantly. They timed the EPYC launch and their hyperscaler engagement cycle to land precisely in the gap. Intel's 10nm server silicon did not ship until 2021, four years late. AMD's server CPU market share went from under 1% in 2017 to over 20% by 2022 — a $15B+ revenue swing built partly on the intelligence discipline to read a competitor's public signals accurately.
+          <div class="case-context">Server CPU · 2016 – 2022</div>
+          <div class="case-title">Intel's 10nm delay was visible in public data — years before it was announced</div>
+          <div class="case-hook">
+            Intel's 10nm manufacturing delay — from first promise (2015) to 10nm server silicon shipping (2021) — was a six-year slip. The signals were present in public data before the delay became industry consensus: patent filing patterns, developer conference hedging, and hiring shifts all pointed the same direction. AMD launched EPYC into the resulting window in 2017 and built a dominant server position before Intel's 10nm platform arrived.
           </div>
-          <div class="case-stat">AMD's data center revenue grew from ~$300M (2017) to over $6B (2022). The EPYC timing window — opened by Intel's visible roadmap delay — was the inflection point.</div>
+          <div class="case-numbers">
+            <div class="case-number">
+              <span class="cn-value">&lt;1%</span>
+              <span class="cn-label">AMD server market share, 2017</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">20%+</span>
+              <span class="cn-label">AMD server market share, 2022</span>
+            </div>
+            <div class="case-number">
+              <span class="cn-value">6 yr</span>
+              <span class="cn-label">Intel 10nm slip (promise 2015 → server silicon 2021)</span>
+            </div>
+          </div>
+          <div class="case-signals">
+            <div class="case-signals-label">Public signals that preceded the delay</div>
+            <ul>
+              <li>Intel 10nm process patent filing rate slowing relative to 14nm cadence (USPTO data, 2015–2016)</li>
+              <li>Intel developer conferences (IDF 2016–2017) hedging on "Cannon Lake" performance and timeline</li>
+              <li>Intel 10nm process engineering job postings declining; 14nm sustaining engineering roles increasing</li>
+            </ul>
+          </div>
           <div class="case-outcome">
             <div class="case-outcome-block">
               <div class="case-outcome-label win">With intelligence</div>
-              <div class="case-outcome-text">EPYC launched to exploit a specific, predictable gap. Design wins at AWS, Microsoft Azure, and Google locked in before Intel recovered.</div>
+              <div class="case-outcome-text">EPYC launched to exploit a specific, predictable gap. Design wins at AWS, Azure, and Google locked in before Intel recovered.</div>
             </div>
             <div class="case-outcome-block">
               <div class="case-outcome-label loss">Without intelligence</div>
-              <div class="case-outcome-text">Intel assumed competitive status quo. Lost server leadership built over 20 years — to a competitor half its size — in a single product generation.</div>
+              <div class="case-outcome-text">Intel assumed competitive status quo. Lost server leadership built over 20 years — to a competitor half its size — in a single product cycle.</div>
             </div>
+          </div>
+          <div class="case-sources">
+            Sources: AMD Q4 2017 and Q4 2022 Earnings Releases (<a href="https://ir.amd.com" target="_blank" rel="noopener">ir.amd.com</a>); Intel 10nm delay coverage, <a href="https://arstechnica.com" target="_blank" rel="noopener">Ars Technica</a> / <a href="https://spectrum.ieee.org" target="_blank" rel="noopener">IEEE Spectrum</a> 2017–2019; USPTO patent database (<a href="https://patents.google.com" target="_blank" rel="noopener">patents.google.com</a>).
           </div>
         </div>
 
@@ -3192,211 +3412,233 @@
         <p class="faq-subtitle">Straight answers. No deck required.</p>
       </div>
 
+      <!-- Tab navigation -->
+      <div class="faq-tabs">
+        <button class="faq-tab faq-tab-active" data-cat="value">Strategic value</button>
+        <button class="faq-tab" data-cat="what">What Argus does</button>
+        <button class="faq-tab" data-cat="why">Why Argus</button>
+        <button class="faq-tab" data-cat="compliance">Compliance</button>
+        <button class="faq-tab" data-cat="confidential">Confidentiality</button>
+        <button class="faq-tab" data-cat="practical">Practical fit</button>
+      </div>
+
       <div class="faq-list">
 
-        <!-- ── CATEGORY: STRATEGIC VALUE ──────────────────────────── -->
-        <div class="faq-category reveal">Strategic value</div>
+        <!-- ── GROUP: STRATEGIC VALUE ──────────────────────────────── -->
+        <div class="faq-group faq-group-active" data-cat="value">
+          <div class="faq-category">Strategic value</div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            How much revenue are we leaving on the table without real-time competitive intelligence?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>In the automotive MCU market, a single pricing move by one vendor typically cascades across two to four competitors within 30–90 days as procurement teams re-benchmark. A supplier that detects a 10% cut on a competing family within 24 hours can choose to hold margin, selectively match, or accelerate a design-win push — all deliberate responses. One that detects it 60 days later is already defending a nomination already lost.</p>
-            <p>Quantify it this way: if your average MCU design win is worth $2–8M in lifetime revenue, and delayed awareness causes you to lose even one win per quarter that you could have defended, the annual opportunity cost exceeds $8–32M. At 3–5% of that figure, a CI system pays for itself in a single prevented loss.</p>
-            <p>The less visible cost is pricing discipline. Without a real-time view of competitor ASP trends, sales teams discount pre-emptively — "I assumed they'd match" — when in fact the competitor held price. Our data consistently shows that 60–70% of competitor price moves are <em>increases</em> or product-mix shifts, not cuts. Reacting to phantom cuts destroys margin.</p>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How much revenue are we leaving on the table without real-time competitive intelligence?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>In the automotive MCU market, a single pricing move by one vendor typically cascades across two to four competitors within 30–90 days as procurement teams re-benchmark. A supplier that detects a 10% cut on a competing family within 24 hours can choose to hold margin, selectively match, or accelerate a design-win push — all deliberate responses. One that detects it 60 days later is already defending a nomination already lost.</p>
+              <p>Quantify it this way: if your average MCU design win is worth $2–8M in lifetime revenue, and delayed awareness causes you to lose even one win per quarter that you could have defended, the annual opportunity cost exceeds $8–32M. At 3–5% of that figure, a CI system pays for itself in a single prevented loss.</p>
+              <p>The less visible cost is pricing discipline. Without a real-time view of competitor ASP trends, sales teams discount pre-emptively — "I assumed they'd match" — when in fact the competitor held price. Reacting to phantom cuts destroys margin.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Our sales team already tracks competitors. Isn't that enough?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Sales teams are structured to win deals, not to monitor markets. In practice, field intelligence arrives through three imperfect channels: customer feedback (anecdotal, filtered by what the customer chooses to share), distributor conversations (lagged by weeks, coloured by the distributor's own inventory position), and competitor datasheets (static, not transactional).</p>
+              <p>None of these channels captures <em>when</em> a competitor changes a list price, adjusts lead time, moves a part to NRND, or surges a new family. Argus monitors all six major automotive MCU vendors daily across thousands of OPNs and surfaces changes within hours. That is structurally impossible for a sales team to replicate as a side task.</p>
+              <p>The right frame is not sales intelligence vs. Argus. It is: what goes into the sales team's briefing on Monday morning, and is it based on last week's data or last quarter's? Argus fills the Monday briefing with what changed since Friday, not what someone remembered from a customer call two weeks ago.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How fast do automotive MCU prices actually move? Is daily tracking overkill?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Faster than most product managers assume. Lifecycle transitions (Active → NRND → EOL) occur in clusters and are frequently unannounced on vendor IR channels. During inventory correction cycles — as seen in 2023–2024 — significant OPN-level pricing events can occur multiple times per week per vendor.</p>
+              <p>The asymmetry matters: a price cut lands in distributor systems within 24–48 hours of the vendor decision. A procurement team at Bosch or Continental can see it the same week. If your sales team only reviews competitors monthly, you are systematically 3–5 weeks behind every negotiation at major Tier-1s.</p>
+              <p>Daily tracking is not overkill — weekly tracking is the minimum defensible cadence, and daily is required to catch the moves that reverse or adjust within a 7-day window before they affect your position.</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Our sales team already tracks competitors. Isn't that enough?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Sales teams are structured to win deals, not to monitor markets. In practice, field intelligence arrives through three imperfect channels: customer feedback (anecdotal, filtered by what the customer chooses to share), distributor conversations (lagged by weeks, coloured by the distributor's own inventory position), and competitor datasheets (static, not transactional).</p>
-            <p>None of these channels captures <em>when</em> a competitor changes a list price, adjusts lead time, moves a part to NRND, or surges a new family. Argus monitors all six major automotive MCU vendors daily across 8,000+ OPNs — distributor pricing, lifecycle status, stock, and lead time — and surfaces changes within hours. That is structurally impossible for a sales team to replicate as a side task.</p>
-            <p>The right frame is not sales intelligence vs. Argus. It is: what goes into the sales team's briefing on Monday morning, and is it based on last week's data or last quarter's? Argus fills the Monday briefing with what changed since Friday, not what someone remembered from a customer call two weeks ago.</p>
+        <!-- ── GROUP: WHAT ARGUS DOES ──────────────────────────────── -->
+        <div class="faq-group" data-cat="what">
+          <div class="faq-category">What Argus does</div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What exactly does Argus track, and which competitors are covered?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Argus tracks six major automotive MCU suppliers continuously: <strong>NXP, Infineon, STMicroelectronics, Renesas, Microchip, and Texas Instruments</strong>. For each vendor, the system monitors:</p>
+              <ul>
+                <li><strong>Pricing</strong> — distributor list price per OPN, with velocity tracking (how many times has this part moved in 90 days?)</li>
+                <li><strong>Lifecycle status</strong> — Active, NRND, EOL, and the transition date</li>
+                <li><strong>Stock and lead time</strong> — distributor inventory levels and quoted lead weeks</li>
+                <li><strong>New product launches</strong> — OPNs appearing for the first time in the vendor portfolio</li>
+                <li><strong>Patent filings</strong> — automotive MCU patents across global patent office databases (90-day window) as an R&amp;D signal</li>
+                <li><strong>Job postings</strong> — hiring patterns as a leading indicator of segment focus and capacity build</li>
+                <li><strong>Developer community signals</strong> — forum friction (errata, toolchain issues, AUTOSAR pain) as a platform health indicator</li>
+                <li><strong>Earnings and analyst signals</strong> — 8-K filings and guidance commentary from public SEC disclosures</li>
+              </ul>
+              <p>Outputs are delivered as role-filtered HTML emails (daily operational alerts, Monday strategic digest, monthly and quarterly briefs) and via a REST API for programmatic access.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How does the AI analysis work? Is it just summarising data I could read myself?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>The AI layer does three things a human analyst cannot do at scale. First, it detects <em>anomalies</em> — a price move that is unusual relative to the same OPN's 90-day history, the vendor's typical repricing cadence, and the segment's macro context. A 4% price cut on a single industrial-grade part is noise; a 4% cut on a family-wide automotive-grade ASIL-D part is a strategic signal. The AI distinguishes these and assigns a risk level.</p>
+              <p>Second, it performs <em>competitive framing</em>: when a new OPN appears, the system decodes the part number structurally (flash, RAM, frequency, package, temperature grade) and identifies the closest equivalents in your portfolio — automatically generating migration CTAs for sales teams.</p>
+              <p>Third, it synthesises across signals: a competitor cutting prices, posting automotive safety engineer roles, and filing functional-safety patents in the same 30-day window is a different story than any of those signals alone. The weekly digest connects those dots into a strategic narrative — the kind an analyst would write after days of research.</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            How fast do automotive MCU prices actually move? Is daily tracking overkill?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Faster than most product managers assume. Analysis of the six major automotive MCU vendors over a 12-month window shows an average of 3–6 significant OPN-level pricing events per vendor per week during normal market conditions — rising to 15–25 per vendor per week during inventory correction cycles (as seen in 2023–2024). Lifecycle transitions (Active → NRND → EOL) occur in clusters and are frequently unannounced on vendor IR channels.</p>
-            <p>The asymmetry matters: a price cut lands in distributor systems within 24–48 hours of the vendor decision. A procurement team at Bosch or Continental can see it the same week. If your sales team only reviews competitors monthly, you are systematically 3–5 weeks behind every negotiation at major Tier-1s.</p>
-            <p>Daily tracking is not overkill — weekly tracking is the minimum defensible cadence, and daily is required to catch the 10–15% of moves that reverse or adjust within a 7-day window.</p>
+        <!-- ── GROUP: WHY ARGUS ────────────────────────────────────── -->
+        <div class="faq-group" data-cat="why">
+          <div class="faq-category">Why Argus vs. alternatives</div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Could we replicate this ourselves? We have data engineers and an AI team.
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>You could — and you would arrive at something approximating what Argus already does, after significant investment. A production-grade CI system for automotive MCUs requires: distributor integrations that handle rate limits, schema changes, and authentication requirements on third-party timelines; vendor website scrapers that survive layered bot-detection and access controls refreshed on irregular schedules; multi-source patent database integrations across global patent offices; regulatory filing parsers; job board scrapers; developer forum scrapers across six distinct vendor community platforms; an AI classification pipeline with cost management, accuracy tuning, and fallback logic; a signal differentiation engine calibrated to separate genuine pricing moves from distributor inventory fluctuations; and a structured delivery layer with role-based filtering. Ongoing maintenance alone runs 0.5–1 FTE.</p>
+              <p>We have already built, debugged, and hardened that system. It runs every day. What we offer is not a setup engagement — it is access to intelligence that is already being produced. The question for your team is not whether the capability is buildable, but whether your engineering and product headcount is better spent on the MCUs that generate the revenue, or on the tooling that monitors the market for it.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How is this different from hiring a CI analyst or a market research firm?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>A CI analyst produces strategic depth but cannot produce daily operational coverage across thousands of OPNs — no human can. Market research firms (IHS Markit, Yole, Gartner) produce excellent annual reports but are structurally lagged by 6–12 months and priced at $50–200K per engagement for custom work, with no real-time alerting.</p>
+              <p>Argus is not a substitute for strategic analysis — it is the live data layer underneath it. Because we are already watching the market continuously, your Monday briefing contains what changed in the past seven days, not what someone last researched six months ago. Your CI analyst or product strategist receives a fact base, not a research project — so their time goes to interpretation and decision-making rather than data gathering. The combination of Argus + one senior analyst outperforms a three-person CI team working from quarterly reports.</p>
+            </div>
           </div>
         </div>
 
-        <!-- ── CATEGORY: WHAT WE DO ────────────────────────────────── -->
-        <div class="faq-category reveal">What Argus does</div>
+        <!-- ── GROUP: COMPLIANCE ───────────────────────────────────── -->
+        <div class="faq-group" data-cat="compliance">
+          <div class="faq-category">Compliance &amp; legality</div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            What exactly does Argus track, and which competitors are covered?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Argus tracks six major automotive MCU suppliers continuously: <strong>NXP, Infineon, STMicroelectronics, Renesas, Microchip, and Texas Instruments</strong>. For each vendor, the system monitors:</p>
-            <ul>
-              <li><strong>Pricing</strong> — distributor list price (DigiKey + Mouser) per OPN, with velocity tracking (how many times has this part moved in 90 days?)</li>
-              <li><strong>Lifecycle status</strong> — Active, NRND, EOL, and the transition date</li>
-              <li><strong>Stock and lead time</strong> — real-time distributor inventory levels and quoted lead weeks</li>
-              <li><strong>New product launches</strong> — OPNs appearing for the first time in the vendor portfolio</li>
-              <li><strong>Patent filings</strong> — automotive MCU patents across global patent office databases (90-day window) as an R&amp;D signal</li>
-              <li><strong>Job postings</strong> — hiring patterns as a leading indicator of segment focus and capacity build</li>
-              <li><strong>Developer community signals</strong> — forum friction (errata, toolchain issues, AUTOSAR pain) as a platform health indicator</li>
-              <li><strong>Earnings and analyst signals</strong> — 8-K filings and guidance commentary from SEC EDGAR</li>
-            </ul>
-            <p>Outputs are delivered as role-filtered HTML emails (daily operational alerts, Monday strategic digest, monthly and quarterly briefs) and via a REST API for programmatic access.</p>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is this legal? How do you obtain competitor pricing and product data?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Yes. Every data source Argus uses is <strong>publicly available</strong> and accessed through legitimate channels:</p>
+              <ul>
+                <li><strong>Distributor pricing</strong> — major distributors publish list prices on their public-facing websites. These are the same prices any purchaser, engineer, or competitor can see without an account.</li>
+                <li><strong>Vendor product pages</strong> — OPN listings, datasheet availability, and lifecycle status are published by vendors on their public product portals as part of standard commercial practice.</li>
+                <li><strong>Patent filings</strong> — patent office databases are public records by law. Patent monitoring is standard practice in semiconductor strategy and IP teams.</li>
+                <li><strong>SEC filings</strong> — 8-K and earnings materials are mandated public disclosures for listed companies.</li>
+                <li><strong>Job postings</strong> — publicly listed on company career pages and aggregator sites.</li>
+                <li><strong>Developer forums</strong> — public community boards with no authentication required.</li>
+              </ul>
+              <p>Argus does not access competitor internal systems, employee communications, customer databases, or any non-public information. Every signal is derived from information the vendor itself has chosen to make public.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Does using competitor pricing data create antitrust exposure for us?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>No — and the distinction is important. Antitrust risk in pricing arises from <em>coordination</em>: agreements (explicit or implicit) between competitors on prices, terms, or market allocation. Monitoring publicly available pricing data and making independent pricing decisions based on that observation is standard commercial practice and is specifically protected as lawful competitive behaviour in all major jurisdictions.</p>
+              <p>Every major semiconductor company, automotive OEM, and Tier-1 supplier monitors public distributor pricing. The fact that it is now automated and systematic does not change the legal character of the activity — it changes its effectiveness. Your legal team will confirm: the risk runs the other way. <em>Not</em> monitoring publicly available market signals while competitors do creates strategic blind spots, not legal protection.</p>
+              <p>As a practical matter, Argus does not facilitate any information exchange between competitors. Your data, queries, and alerts are private to your organisation.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              We are subject to export control and trade compliance regulations. Does this create any issues?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>No. Argus monitors publicly listed product data — part numbers, prices, lifecycle status, and distributor availability. It does not access, transmit, or analyse any controlled technical data, ITAR-regulated information, EAR-controlled design files, or proprietary specifications. The system observes what vendors themselves publish in their public commercial catalogues.</p>
+              <p>For automotive MCU suppliers, the relevant compliance consideration is typically around dual-use classification of the MCUs themselves — a question that concerns your export compliance team when <em>selling</em>, not when monitoring public market data. Argus operates entirely on the reading side: publicly available commercial publications, not technical parameters that would trigger export control review.</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            How does the AI analysis work? Is it just summarising data I could read myself?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>The AI layer does three things a human analyst cannot do at scale. First, it detects <em>anomalies</em> — a price move that is unusual relative to the same OPN's 90-day history, the vendor's typical repricing cadence, and the segment's macro context. A 4% price cut on a single industrial-grade part is noise; a 4% cut on a family-wide automotive-grade ASIL-D part is a strategic signal. The AI distinguishes these and assigns a risk level.</p>
-            <p>Second, it performs <em>competitive framing</em>: when a new OPN appears, the system decodes the part number structurally (flash, RAM, frequency, package, temperature grade) and identifies the closest equivalents in your portfolio — automatically generating migration CTAs for sales teams.</p>
-            <p>Third, it synthesises across signals: a competitor cutting prices, posting 40 automotive safety engineer roles, and filing six functional-safety patents in the same 30-day window is a different story than any of those signals alone. The weekly digest connects those dots into a 200-word strategic narrative — the kind an analyst would write after three days of research.</p>
+        <!-- ── GROUP: CONFIDENTIALITY ─────────────────────────────── -->
+        <div class="faq-group" data-cat="confidential">
+          <div class="faq-category">Confidentiality</div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What data does Argus retain about our competitive strategy and internal decisions?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Argus retains only the market data it collects — competitor OPN records, pricing history, lifecycle events, patent signals, and the AI-generated analysis derived from those inputs. It has no visibility into your internal systems, pricing models, customer lists, roadmap documents, or strategic decisions. We do not ask for them and do not need them — the intelligence we produce is derived entirely from public market sources.</p>
+              <p>The alerts and briefs delivered to your team are private to your subscription. We do not share subscriber identity, alert configurations, or the conclusions you draw from our intelligence with any third party, including other subscribers. What you do with the intelligence — the pricing decisions, the sales plays, the roadmap calls — happens entirely within your organisation and is invisible to us.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Could our competitors learn what signals we are monitoring or how we are responding to their moves?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>No. Argus reads public data passively — it does not create any observable footprint that a competitor could detect. Reading a public distributor product page, a patent database, or a developer forum post leaves no signal that differs from any other web request. There is no account registration with the vendor being monitored, or any mechanism by which the observed party could identify the observer.</p>
+              <p>Your internal alert configurations, the specific OPNs or families you flag for close monitoring, and the strategic conclusions you draw from the data are internal to your organisation and never transmitted externally. A competitor cannot determine from Argus's operation that you are watching them, what you are watching, or how you are responding.</p>
+            </div>
           </div>
         </div>
 
-        <!-- ── CATEGORY: BUILD VS BUY ──────────────────────────────── -->
-        <div class="faq-category reveal">Why Argus vs. alternatives</div>
+        <!-- ── GROUP: PRACTICAL FIT ───────────────────────────────── -->
+        <div class="faq-group" data-cat="practical">
+          <div class="faq-category">Practical fit</div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Could we replicate this ourselves? We have data engineers and an AI team.
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>You could — and you would arrive at something approximating what Argus already does, after significant investment. A production-grade CI system for automotive MCUs requires: distributor integrations that handle rate limits, schema changes, and authentication requirements on third-party timelines; vendor website scrapers that survive layered bot-detection and access controls refreshed on irregular schedules; multi-source patent database integrations across global patent offices; regulatory filing parsers; job board scrapers; developer forum scrapers across six distinct vendor community platforms; an AI classification pipeline with cost management, accuracy tuning, and fallback logic; a signal differentiation engine calibrated to separate genuine pricing moves from distributor inventory fluctuations; and a structured delivery layer with role-based filtering. Ongoing maintenance alone runs 0.5–1 FTE.</p>
-            <p>We have already built, debugged, and hardened that system. It runs every day. What we offer is not a setup engagement — it is access to intelligence that is already being produced. The question for your team is not whether the capability is buildable, but whether your engineering and product headcount is better spent on the MCUs that generate the revenue, or on the tooling that monitors the market for it.</p>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              We track 5,000+ OPNs across six competitors. Can Argus handle that scale?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Yes. Argus already monitors the full catalogue across all six vendors — NXP, Infineon, STMicroelectronics, Renesas, Microchip, and Texas Instruments — running daily. The system maintains a rolling pricing and lifecycle history and processes the full vendor portfolio on each run.</p>
+              <p>There is no scale threshold at which you would receive degraded coverage or slower alerts. The system does not allocate compute per subscriber — it watches the entire market once and delivers the relevant signals to each team. Whether you care about 50 OPNs or 5,000, the underlying data collection is the same.</p>
+            </div>
           </div>
-        </div>
 
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            How is this different from hiring a CI analyst or a market research firm?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>A CI analyst produces strategic depth but cannot produce daily operational coverage across 8,000+ OPNs — no human can. Market research firms (IHS Markit, Yole, Gartner) produce excellent annual reports but are structurally lagged by 6–12 months and priced at $50–200K per engagement for custom work, with no real-time alerting.</p>
-            <p>Argus is not a substitute for strategic analysis — it is the live data layer underneath it. Because we are already watching the market continuously, your Monday briefing contains what changed in the past seven days, not what someone last researched six months ago. Your CI analyst or product strategist receives a fact base, not a research project — so their time goes to interpretation and decision-making rather than data gathering. The combination of Argus + one senior analyst outperforms a three-person CI team working from quarterly reports.</p>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Our design win cycles are 18–36 months. How does a daily alert system fit into that timeline?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>The long design-win cycle is precisely why early detection matters more, not less. By the time a customer is 18 months into a programme, switching MCU vendors costs them 6–12 months of redesign, re-validation, and recertification. The window to influence specification is in the first 3–6 months. If a competitor launches a new ASIL-D family at a lower price point, you need to know <em>immediately</em> — not when your sales team hears about it from a customer already in the final design phase.</p>
+              <p>Daily alerts serve the operational layer: price changes, stock-outs, NRND announcements — events that affect active accounts and require a response within days. The Monday strategic digest serves the 18-month planning horizon: which competitor is investing in which segment, where are the portfolio white spaces, which families are in end-of-life trajectories. Both cadences are necessary; neither substitutes for the other.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- ── CATEGORY: COMPLIANCE & LEGALITY ─────────────────────── -->
-        <div class="faq-category reveal">Compliance &amp; legality</div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Is this legal? How do you obtain competitor pricing and product data?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Yes. Every data source Argus uses is <strong>publicly available</strong> and accessed through legitimate channels:</p>
-            <ul>
-              <li><strong>Distributor pricing</strong> — DigiKey and Mouser publish list prices on their public-facing websites and via documented APIs. These are the same prices any purchaser, engineer, or competitor can see without an account.</li>
-              <li><strong>Vendor product pages</strong> — OPN listings, datasheet availability, and lifecycle status are published by vendors on their public product portals as part of standard commercial practice.</li>
-              <li><strong>Patent filings</strong> — USPTO, EPO, and other patent office databases are public records by law. Patent monitoring is a standard practice in semiconductor strategy and IP teams.</li>
-              <li><strong>SEC filings</strong> — 8-K and earnings materials are mandated public disclosures for listed companies.</li>
-              <li><strong>Job postings</strong> — publicly listed on company career pages and aggregator sites.</li>
-              <li><strong>Developer forums</strong> — public community boards with no authentication required.</li>
-            </ul>
-            <p>Argus does not access competitor internal systems, employee communications, customer databases, or any non-public information. Every signal is derived from information the vendor itself has chosen to make public.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Does using competitor pricing data create antitrust exposure for us?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>No — and the distinction is important. Antitrust risk in pricing arises from <em>coordination</em>: agreements (explicit or implicit) between competitors on prices, terms, or market allocation. Monitoring publicly available pricing data and making independent pricing decisions based on that observation is standard commercial practice and is specifically protected as lawful competitive behaviour in all major jurisdictions.</p>
-            <p>Every major semiconductor company, automotive OEM, and Tier-1 supplier monitors public distributor pricing. The fact that it is now automated and systematic does not change the legal character of the activity — it changes its effectiveness. Your legal team will confirm: the risk runs the other way. <em>Not</em> monitoring publicly available market signals while competitors do creates strategic blind spots, not legal protection.</p>
-            <p>As a practical matter, Argus does not facilitate any information exchange between competitors. Your data, queries, and alerts are private to your organisation.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            We are subject to export control and trade compliance regulations. Does this create any issues?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>No. Argus monitors publicly listed product data — part numbers, prices, lifecycle status, and distributor availability. It does not access, transmit, or analyse any controlled technical data, ITAR-regulated information, EAR-controlled design files, or proprietary specifications. The system observes what vendors themselves publish in their public commercial catalogues.</p>
-            <p>For automotive MCU suppliers, the relevant compliance consideration is typically around dual-use classification of the MCUs themselves — a question that concerns your export compliance team when <em>selling</em>, not when monitoring public market data. Argus operates entirely on the buy-side of the information flow: reading publicly available commercial publications, not handling technical parameters that would trigger export control review.</p>
-          </div>
-        </div>
-
-        <!-- ── CATEGORY: CONFIDENTIALITY ───────────────────────────── -->
-        <div class="faq-category reveal">Confidentiality</div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            What data does Argus retain about our competitive strategy and internal decisions?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Argus retains only the market data it collects — competitor OPN records, pricing history, lifecycle events, patent signals, and the AI-generated analysis derived from those inputs. It has no visibility into your internal systems, pricing models, customer lists, roadmap documents, or strategic decisions. We do not ask for them and do not need them — the intelligence we produce is derived entirely from public market sources.</p>
-            <p>The alerts and briefs delivered to your team are private to your subscription. We do not share subscriber identity, alert configurations, or the conclusions you draw from our intelligence with any third party, including other subscribers. What you do with the intelligence — the pricing decisions, the sales plays, the roadmap calls — happens entirely within your organisation and is invisible to us.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Could our competitors learn what signals we are monitoring or how we are responding to their moves?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>No. Argus reads public data passively — it does not create any observable footprint that a competitor could detect. Reading a public DigiKey product page, a patent database, or a developer forum post leaves no signal that differs from any other web request. There is no account registration, API key registration with the vendor being monitored, or any mechanism by which the observed party could identify the observer.</p>
-            <p>Your internal alert configurations, the specific OPNs or families you flag for close monitoring, and the strategic conclusions you draw from the data are internal to your organisation and never transmitted externally. A competitor cannot determine from Argus's operation that you are watching them, what you are watching, or how you are responding.</p>
-          </div>
-        </div>
-
-        <!-- ── CATEGORY: PRACTICAL FIT ─────────────────────────────── -->
-        <div class="faq-category reveal">Practical fit</div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            We track 5,000+ OPNs across six competitors. Can Argus handle that scale?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Yes. Argus already monitors the full catalog across all six vendors — NXP, Infineon, STMicroelectronics, Renesas, Microchip, and Texas Instruments — running daily at scale. The pipeline processes 50,000+ OPN comparisons per run, maintains a rolling 90-day pricing and lifecycle history, and enriches distributor data on a rotating 15-day schedule that prioritises recently-changed OPNs.</p>
-            <p>There is no scale threshold at which you would receive degraded coverage or slower alerts. The system does not allocate compute per subscriber — it watches the entire market once and delivers the relevant signals to each team. Whether you care about 50 OPNs or 5,000, the underlying data collection is the same.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Our design win cycles are 18–36 months. How does a daily alert system fit into that timeline?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>The long design-win cycle is precisely why early detection matters more, not less. By the time a customer is 18 months into a programme, switching MCU vendors costs them 6–12 months of redesign, re-validation, and recertification. The window to influence specification is in the first 3–6 months. If a competitor launches a new ASIL-D family at a lower price point, you need to know <em>immediately</em> — not when your sales team hears about it from a customer already in the final design phase.</p>
-            <p>Daily alerts serve the operational layer: price changes, stock-outs, NRND announcements — events that affect active accounts and require a response within days. The Monday strategic digest serves the 18-month planning horizon: which competitor is investing in which segment, where are the portfolio white spaces, which families are in end-of-life trajectories. Both cadences are necessary; neither substitutes for the other.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            How quickly do we start receiving intelligence after subscribing?
-            <span class="faq-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="faq-a">
-            <p>Immediately. There is no setup period, no integration project, and no data population phase — the system is already running and has been watching the market continuously. When your subscription is activated, you receive access to the live alert feed and the accumulated historical database from day one. Your first daily brief arrives the following morning; your first Monday strategic digest arrives on the next Monday.</p>
-            <p>The intelligence is immediately actionable. Pricing velocity analysis (how many times has this OPN moved in 90 days?) is available from the first alert because the history already exists. Design-win momentum signals, patent filing trends, and developer community friction scores reflect months of continuous monitoring — not a baseline being built from scratch. Subscribers typically identify their first actionable signal — a competitor NRND to convert, a price move to respond to, or a white-space opportunity to pursue — within the first week.</p>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How quickly do we start receiving intelligence after subscribing?
+              <span class="faq-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a">
+              <p>Immediately. There is no setup period, no integration project, and no data population phase — the system is already running and has been watching the market continuously. When your subscription is activated, you receive access to the live alert feed and the accumulated historical data from day one. Your first daily brief arrives the following morning; your first Monday strategic digest arrives on the next Monday.</p>
+              <p>The intelligence is immediately actionable because the history already exists. Design-win momentum signals, patent filing trends, and developer community friction scores reflect months of continuous monitoring — not a baseline being built from scratch. Subscribers typically identify their first actionable signal within the first week.</p>
+            </div>
           </div>
         </div>
 
@@ -3731,6 +3973,26 @@
         // Toggle this one
         btn.setAttribute('aria-expanded', String(!expanded));
         answer.classList.toggle('open', !expanded);
+      });
+    });
+
+    /* ── FAQ category tabs ───────────────────────────────────────── */
+    const faqTabs   = document.querySelectorAll('.faq-tab');
+    const faqGroups = document.querySelectorAll('.faq-group');
+    faqTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        faqTabs.forEach(t => t.classList.remove('faq-tab-active'));
+        faqGroups.forEach(g => g.classList.remove('faq-group-active'));
+        tab.classList.add('faq-tab-active');
+        const group = document.querySelector('.faq-group[data-cat="' + tab.dataset.cat + '"]');
+        if (group) group.classList.add('faq-group-active');
+        // collapse any open accordion in the newly shown group
+        if (group) {
+          group.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(q => {
+            q.setAttribute('aria-expanded', 'false');
+            q.nextElementSibling.classList.remove('open');
+          });
+        }
       });
     });
   </script>
